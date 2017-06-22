@@ -5,8 +5,10 @@ const router  = express.Router();
 
 module.exports = (knex) => {
 
+  //nb: remove render code after testing done
   router.get("/", (req, res) => {
-    res.status(404).end("Must be invited to join a poll.");
+    // res.status(404).end("Must be invited to join a poll.");
+    res.render('vote');
   });
 
   router.get('/:id',(req,res)=>{
