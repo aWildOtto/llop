@@ -5,3 +5,44 @@ body {
     color: #244751;
   }
 }
+
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+  background-color: lightgray;
+  color: #388E3C;
+  border: 0;
+}
+
+.btn-plus.btn-circle.btn-lg {
+  color:#01579B;
+  background-color: lightgray;
+}
+
+.btn-remove.btn-circle.btn-lg {
+  color: #BF360C;
+}
+
+.btn-circle.btn-lg:hover {
+  border:3px solid #C8E6C9;
+  transition: 0.5s;
+}
+
+.btn-plus.btn-circle.btn-lg:hover {
+  border:3px solid #B3E5FC;
+  transition: 0.5s;
+}
+
+.btn-remove.btn-circle.btn-lg:hover {
+  border: 3px solid #FFAB91;
+  transition: 0.5s;
+}
+
+
+
+
+
