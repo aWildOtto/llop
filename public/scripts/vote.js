@@ -26,12 +26,6 @@ $(document).ready(function(){
             }
   };
 
-// jQuery sortable UI for drag and drop
-  $(function sortable() {
-        $( "#sortable" ).sortable({
-            placeholder: 'ui-sortable-placeholder'
-        });
-    });
 
 // Dynamically generate list of options, store id of choices in custom attribute
   function makeList(obj){
@@ -54,7 +48,8 @@ $(document).ready(function(){
     if($nameLength === 0) {
       alert('Hey bud, your name can\'t be empty  (Ծ‸ Ծ)');
     } else {
-      $('.vote_container').show();
+      $('.name_container').slideUp('fast');
+      $('.vote_container').slideDown('fast');
     }
   })
 
@@ -70,7 +65,11 @@ $(document).ready(function(){
       choiceIdsRanked.push($listElements[i].attributes.choiceId.nodeValue);
     }
     console.log(choiceIdsRanked);
+    $('.vote_container').slideUp('fast');
+    $('.vote_feedback').slideDown('fast');
   })
+
+
 
 
 });

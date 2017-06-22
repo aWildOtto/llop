@@ -18,13 +18,18 @@
 </head>
 <body>
   <!-- temporary CSS code to set generated poll as hidden by default before name is entered, delete when actual style is set up-->
-  <style>.vote_container { display: none} </style>
+  <style>
+  .vote_container { display: none}
+  .vote_feedback {display: none}
+  </style>
   <!-- begin form -->
   <form id = "vote_form" action="/vote" method="POST">
   <!-- enter name -->
+  <div class='name_container'>
   <label>Enter your name to vote</label>
   <input type="text" name="name" placeholder="Chun Li">
-  <button class = "submit_name btn btn-primary">Submit</button>
+  <button class="submit_name btn btn-primary">Submit</button>
+  </div>
   <!-- begin poll options -->
   <div class="vote_container">
   <div class="question"></div>
@@ -33,5 +38,8 @@
   <button type="submit" class="btn btn-primary">Submit</button>
   </div>
   </form>
+  <div class="vote_feedback">
+  Thank you for voting, click <a href='/create'>here</a> to create a poll of your own!
+  </div>
 </body>
 </html>
