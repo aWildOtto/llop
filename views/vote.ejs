@@ -15,18 +15,23 @@
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/vote.js"></script>
   <script type="text/javascript" src="/scripts/sortable.js"></script>
-
-
 </head>
-<script>
-
-</script>
-
 <body>
+  <!-- temporary CSS code to set generated poll as hidden by default before name is entered, delete when actual style is set up-->
+  <style>.vote_container { display: none} </style>
+  <!-- begin form -->
   <form id = "vote_form" action="/vote" method="POST">
+  <!-- enter name -->
+  <label>Enter your name to vote</label>
+  <input type="text" name="name" placeholder="Chun Li">
+  <button class = "submit_name btn btn-primary">Submit</button>
+  <!-- begin poll options -->
+  <div class="vote_container">
+  <div class="question"></div>
   <ul class="sortable">
   </ul>
   <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
   </form>
 </body>
 </html>
