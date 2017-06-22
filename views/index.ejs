@@ -16,17 +16,17 @@
 <body>
   <script>
     $(document).ready(function () {
-      var max_fields = 10; //maximum input boxes allowed
+      var max_fields = 20; //maximum input boxes allowed
       var wrapper = $(".input_fields_wrap"); //Fields wrapper
       var add_button = $(".add_field_button"); //Add button ID
 
-      var x = 1; //initlal text box count
+      var x = 2; //initlal text box count
       $(add_button).click(function (e) { //on add input button click
         e.preventDefault();
         if (x < max_fields) { //max input box allowed
           x++; //text box increment
           $(wrapper).append(
-            '<input type="text" name="title"><textarea rows="3" name="description"></textarea>'); //add input box
+            `<div><label>Option ${x} </label><input type="text" name="title"> <input rows="3" name="description"></div>`); //add input box
         }
       });
 
@@ -36,9 +36,8 @@
         x--;
       })
     });
-
   </script>
-  <form>
+  <form action="/create" method="POST">
     <div>
       <!-- Email field !-->
       <label>Enter your Email to create a poll</label>
@@ -53,18 +52,18 @@
       <label>What's the question everyone will be voting on?</label>
       <input type="text" name="question">
     </div>
-    <div class="input_fields_wrap">
+    <div >
       <!-- Create option 1 -->
       <label>Option 1</label>
-      <input type="text" name="title">
-      <textarea rows="3" name="description"></textarea>
+      <input type="text" name="title[]">
+      <input rows="3" name="description[]">
     </div>
-    <div>
+    <div class="input_fields_wrap">
       <!-- Create option 2 -->
       <label>Option 2</label>
       <input type="text" name="title[]">
       <input rows="3" name="description[]"></input>
-      <div>
+    </div>
         <!-- Submit button !-->
         <button class="add_field_button">Add More Fields</button>
         <button type="submit" class="btn btn-primary">Submit</button>
