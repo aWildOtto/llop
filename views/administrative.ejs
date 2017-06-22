@@ -8,19 +8,22 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/administrative.js"></script>
 </head>
 <script>
 // jquery loop through json file provided by route after query
 // generate DOM objects dynamically, append to container
 </script>
-
 <body>
   <container class = "display_results">
-  <div class="question"> </div>
-  <div class="choices"> </div>
+  <div class="question"><h2>Results for: </h1></div>
+  <ul class="results">
+  </ul>
   </container>
+  <div>
+  <a href = '/vote'>Go to the voting page</a>  <a href = '/'>Make a new poll</a>
+  </div>
 </body>
 </html>
