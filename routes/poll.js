@@ -10,31 +10,30 @@ function randomString(length) {
 module.exports = (knex) => {
 
   router.get("/", (req, res) => {
-    res.render('ejs');
+    res.render('index');
   });
 
   router.post('/', (req,res)=>{
-    knex('polls').insert({question: req.body.question, 
-                          creator_name: req.body.creator_name,
-                          creator_email: req.body.creator_email,
-                          background_path: req.body.background_path,
-                          anonymous: req.body.anonymous
-      }).asCallback((err, result)=>{
-        if(err){
-          console.log(err);
-        }
-        let i = 0;
-        let desc;
-        req.body.title.forEach(function(element) {
-          desc = req.body.description[i];
-          knex('choice').insert({title: element, description: desc}).asCallback((err,result)=>{
-            if(err){
-              console.log(err);
-            }
-          })
-          i++;
-        });
-      });
+    let randAdminCode = randomString(10);
+    knex.select().from("polls").where({admin_code: randAdminCode}).then((row)=>{
+      if(row.length === 0){        
+        // knex('polls').insert({question: req.body.question, 
+        //                       creator_name: req.body.creator_name,
+        //                       creator_email: req.body.creator_email,
+        //                       background_path: req.body.background_path,
+        //                       anonymous: req.body.anonymous
+        //   });
+      }
+    });
+
+    console.log("question:",req.body.question, 
+                "creator_name:",req.body.creator_name,
+                "email:",req.body.creator_email,
+                "background_path", req.body.background_path,
+                "anonymous:", req.body.anonymous,
+                "titles", req.body.title,
+                "descriptions", req.body.description);
+    res.redirect('/');
   });
   return router;
 }
