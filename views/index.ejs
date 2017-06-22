@@ -3,7 +3,7 @@
 
 <head>
   <title>Home Page</title>
-   <!--external stylesheets-->
+  <!--external stylesheets-->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -12,8 +12,8 @@
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
   <!--external scripts-->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <!--app scripts-->
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -22,11 +22,16 @@
 </head>
 
 <body>
-  <form id = "poll_form" action="/create" method="POST">
+  <form class="poll_form" action="/create" method="POST">
     <div>
       <!-- Email field !-->
-      <label>Enter your Email to create a poll</label>
-      <input type="email" name="creator_email" placeholder="example@example">
+      <label>Enter your...</label>
+      <br>
+      <label>Email</label>
+      <input class="email_field" type="email" name="creator_email" placeholder="joel@joel.joel">
+      <br>
+      <label>Name</label>
+      <input class="name_field" type="text" name="creator_name" placeholder="Joel Shinness">
     </div>
     <div>
       <!-- Submit button !-->
@@ -35,20 +40,20 @@
     <div>
       <!-- Create question -->
       <label>What's the question everyone will be voting on?</label>
-      <input type="text" name="question">
-      <label><input name = "anonymous" type="checkbox" > Anonymous voting</label>
+      <input class="question_field" type="text" name="question">
+      <label><input class="anon_button" name="anonymous" type="checkbox" > Anonymous  voting</label>
     </div>
     <div>
       <!-- Create option 1 -->
       <label>Option 1</label>
-      <input type="text" name="title[]">
-      <input rows="3" name="description[]" placeholder = "description">
+      <input class="option" type="text" name="title[]">
+      <input rows="3" name="description[]" placeholder="description">
     </div>
-    <div class="input_fields_wrap">
+    <div class="input_fields_wrap ">
       <!-- Create option 2 -->
       <label>Option 2</label>
-      <input type="text" name="title[]">
-      <input rows="3" name="description[]" placeholder = "description">
+      <input class="option" type="text" name="title[]">
+      <input rows="3" name="description[]" placeholder="description">
     </div>
     <!-- Submit button !-->
     <button class="add_field_button btn btn-primary">Add More Fields</button>
