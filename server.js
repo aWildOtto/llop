@@ -37,7 +37,8 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 // Mount all resource routes
-app.use("/create", usersRoutes(knex));
+app.use("/create", pollRoutes(knex));
+app.use("/vote", voteRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
