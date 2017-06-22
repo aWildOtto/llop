@@ -1,17 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home Page</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+<head>
+  <title>Home Page</title>
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
 
-  <body>
-    <h1>Hello World!</h1>
-  </body>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/create_poll.js"></script>
+
+</head>
+
+<body>
+  <form action="/create" method="POST">
+    <div>
+      <!-- Email field !-->
+      <label>Enter your Email to create a poll</label>
+      <input type="email" name="creator_email" placeholder="example@example">
+    </div>
+    <div>
+      <!-- Submit button !-->
+      <button type="submit">Submit</button>
+    </div>
+    <div>
+      <!-- Create question -->
+      <label>What's the question everyone will be voting on?</label>
+      <input type="text" name="question">
+      <label class="checkbox"><input type="checkbox" value="">anon</label>
+    </div>
+    <div>
+      <!-- Create option 1 -->
+      <label>Option 1</label>
+      <input type="text" name="title[]">
+      <input rows="3" name="description[]">
+    </div>
+    <div class="input_fields_wrap">
+      <!-- Create option 2 -->
+      <label>Option 2</label>
+      <input type="text" name="title[]">
+      <input rows="3" name="description[]"></input>
+    </div>
+    <!-- Submit button !-->
+    <button class="add_field_button">Add More Fields</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</body>
+
 </html>
