@@ -23,11 +23,7 @@ $(document).ready(function () {
   });
 
   $(".poll_form").on("submit", function (e) {
-    event.preventDefault();
-    if ($(".email_field").val().length === 0) {
-      alert('Please enter a valid email address');
-      return;
-    }
+    e.preventDefault();
     if ($(".question_field").val().length === 0) {
       alert('Question field cannot be empty, please enter a question');
       return;
@@ -46,8 +42,19 @@ $(document).ready(function () {
       method: "POST",
       url: "/create",
       data: $(this).serialize()
-    }).done(function(){
-      //alert creator that poll has been created and links sent to email
+    }).done(function () {
+      $(".second_page").css("display", "none");
     });
   });
+
+  $("#firstpage_submit").on("click", function (e) {
+    e.preventDefault();
+    if ($(".email_field").val().length === 0) {
+      alert('Please enter a valid email address');
+      return;
+    }
+    $(".second_page").slideDown("fast");
+    $(".first_page").slideUp("fast");
+  });
+
 });
