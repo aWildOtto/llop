@@ -11,9 +11,9 @@ $(document).ready(function () {
       $(wrapper).append(
         `<div>
           <label>Option ${x} </label>
-          <input type="text" name="title[]"> 
+          <input type="text" name="title[]">
           <input rows="3" name="description[]" placeholder = "description">
-          <button class="remove_field">Remove</button>
+          <button class="remove_field btn btn-primary">Remove</button>
         </div>`); //add input box
     }
   });
@@ -25,6 +25,6 @@ $(document).ready(function () {
   })
 
   $("#poll_form").on("submit",function(e){
-    
+
   });
 });
