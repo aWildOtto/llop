@@ -11,8 +11,8 @@ $(document).ready(function () {
         `<div>
           <label>Option ${x} </label>
           <input class="option" type="text" name="title[]">
-          <input rows="3" type="text" name="description[]" placeholder = "description">
-          <button class="remove_field btn btn-primary">Remove</button>
+          <input rows="3" name="description[]" placeholder = "description">
+          <button class="remove_field btn-remove btn-circle btn-lg"><i class="glyphicon glyphicon-remove"></i></button>
         </div>`); //add input box
     }
   });
@@ -43,7 +43,7 @@ $(document).ready(function () {
       url: "/create",
       data: $(this).serialize()
     }).done(function () {
-      $(".secondpage").css("display", "none");
+      $(".second_page").css("display", "none");
     });
   });
 
