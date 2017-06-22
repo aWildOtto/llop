@@ -14,17 +14,17 @@ module.exports = (knex) => {
   });
 
   router.post('/', (req,res)=>{
-    // let randAdminCode = randomString(10);
-    // knex.select().from("polls").where({admin_code: randAdminCode}).then((row)=>{
-    //   if(row.length === 0){        
-    //     // knex('polls').insert({question: req.body.question, 
-    //     //                       creator_name: req.body.creator_name,
-    //     //                       creator_email: req.body.creator_email,
-    //     //                       background_path: req.body.background_path,
-    //     //                       anonymous: req.body.anonymous
-    //     //   });
-    //   }
-    // });
+    let randAdminCode = randomString(10);
+    knex.select().from("polls").where({admin_code: randAdminCode}).then((row)=>{
+      if(row.length === 0){        
+        // knex('polls').insert({question: req.body.question, 
+        //                       creator_name: req.body.creator_name,
+        //                       creator_email: req.body.creator_email,
+        //                       background_path: req.body.background_path,
+        //                       anonymous: req.body.anonymous
+        //   });
+      }
+    });
 
     console.log("question:",req.body.question, 
                 "creator_name:",req.body.creator_name,
