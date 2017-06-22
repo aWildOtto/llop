@@ -1,29 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home Page</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+<head>
+  <title>Home Page</title>
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
 
-  <body>
-    <form>
-      <div class="form-group"> <!-- Email field !-->
-        <label for="email_id" class="control-label">Enter your Email to create a poll</label>
-        <input type="email" class="form-control" id="email_id" name="email_name" placeholder="example@example">
-      </div>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
 
-      <div class="form-group"> <!-- Submit button !-->
+<body>
+  <script>
+    $(document).ready(function () {
+      var max_fields = 10; //maximum input boxes allowed
+      var wrapper = $(".input_fields_wrap"); //Fields wrapper
+      var add_button = $(".add_field_button"); //Add button ID
+
+      var x = 1; //initlal text box count
+      $(add_button).click(function (e) { //on add input button click
+        e.preventDefault();
+        if (x < max_fields) { //max input box allowed
+          x++; //text box increment
+          $(wrapper).append(
+            '<input type="text" name="title"><textarea rows="3" name="description"></textarea>'); //add input box
+        }
+      });
+
+      $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text
+        e.preventDefault();
+        $(this).parent('div').remove();
+        x--;
+      })
+    });
+
+  </script>
+  <form>
+    <div>
+      <!-- Email field !-->
+      <label>Enter your Email to create a poll</label>
+      <input type="email" name="creator_email" placeholder="example@example">
+    </div>
+    <div>
+      <!-- Submit button !-->
+      <button type="submit">Submit</button>
+    </div>
+    <div>
+      <!-- Create question -->
+      <label>What's the question everyone will be voting on?</label>
+      <input type="text" name="question">
+    </div>
+    <div class="input_fields_wrap">
+      <!-- Create option 1 -->
+      <label>Option 1</label>
+      <input type="text" name="title">
+      <textarea rows="3" name="description"></textarea>
+    </div>
+    <div>
+      <!-- Create option 2 -->
+      <label>Option 2</label>
+      <input type="text" name="title[]">
+      <input rows="3" name="description[]"></input>
+      <div>
+        <!-- Submit button !-->
+        <button class="add_field_button">Add More Fields</button>
         <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </form>
-    <form>
-      <div
-  </body>
+  </form>
+</body>
+
 </html>
