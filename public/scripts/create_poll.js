@@ -9,7 +9,7 @@
         if (x < max_fields) { //max input box allowed
           x++; //text box increment
           $(wrapper).append(
-            `<div><label>Option ${x} </label><input type="text" name="title"> <input rows="3" name="description"></div>`); //add input box
+            `<div><label>Option ${x} </label><input type="text" name="title"> <input rows="3" name="description"><button class="remove_field">Remove</button></div>`); //add input box
         }
       });
 
