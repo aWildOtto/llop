@@ -18,10 +18,12 @@
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
+  position: fixed;
+  bottom: 0px;
   padding: 1rem;
   right:0;
   font-style: italic;
   font-size: 30px;
+  z-index: -1;
 }
+

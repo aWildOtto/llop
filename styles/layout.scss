@@ -9,7 +9,7 @@ body {
   padding-top: 260px;
   margin: 0px auto;
   height: 100%;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Ubuntu Mono', monospace;
 }
 
 .btn-circle.btn-lg {
@@ -32,6 +32,9 @@ body {
 .btn-remove.btn-circle.btn-lg {
   color: #BF360C;
   background-color: #CFD8DC;
+  height: 50px;
+  width: 50px;
+  font-size: 18px;
 }
 
 .btn-circle.btn-lg:hover {
@@ -52,12 +55,6 @@ body {
 .second_page {
   display: none;
 }
-
-// .first_page {
-//   font-size: 35px;
-//   margin: 0 auto;
-//   text-align: center;
-// }
 
 .email_field {
   margin: 0 auto;
@@ -83,6 +80,26 @@ body {
   text-align: center;   
 }
 
+.question_field {
+  position: relative;
+  display: inline-block;
+  border-radius: 10px;
+  border: 0; 
+}
+
+.option {
+  border-radius: 10px;
+  border: 1px solid lightgray; 
+  margin-left: 10px;
+}
+
+.description {
+  position: relative;
+  display: inline-block;
+  border-radius: 10px;
+  border: 1px solid lightgray; 
+  margin-right: 10px;
+}
 
 
 
