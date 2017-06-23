@@ -60,13 +60,20 @@ $(document).ready(function(){
     var $sortableList = $('.sortable');
     var $listElements = $sortableList.children();
     console.log($listElements);
-    var choiceIdsRanked = [];
+    var choiceIdsRanked = {};
     for (var i = 0; i < $listElements.length; i ++) {
-      choiceIdsRanked.push($listElements[i].attributes.choiceId.nodeValue);
+      // choiceIdsRanked.push($listElements[i].attributes.choiceId.nodeValue);
+      choiceIdsRanked[i + 1] = $listElements[i].attributes.choiceId.nodeValue;
     }
     console.log(choiceIdsRanked);
-    $('.vote_container').slideUp('fast');
-    $('.vote_feedback').slideDown('fast');
+    $.ajax({
+      method: 'POST',
+      url: '/vote',
+      data: choiceIdsRanked
+    }).done(function(){
+      $('.vote_container').slideUp('fast');
+      $('.vote_feedback').slideDown('fast');
+    });
   })
 
 
