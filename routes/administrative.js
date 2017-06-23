@@ -3,7 +3,7 @@
 const express = require('express');
 const router  = express.Router();
 
-module.exports = (knex) => {
+module.exports = (dbHealper) => {
 
   //nb: remove render code after testing done
   router.get("/", (req, res) => {

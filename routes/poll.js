@@ -3,28 +3,20 @@
 const express = require('express');
 const router  = express.Router();
 
-function randomString(length) {
-    return Math.round((Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))).toString(36).slice(1);
+//-----------------utilities-----------------------
+function zip(a,b){
+  return a.map(function (e, i) {
+      return [e, b[i]];
+  });
 }
 
-module.exports = (knex) => {
+module.exports = (dbHelper) => {
 
   router.get("/", (req, res) => {
     res.render('index');
   });
 
   router.post('/', (req,res)=>{
-    let randAdminCode = randomString(10);
-    knex.select().from("polls").where({admin_code: randAdminCode}).then((row)=>{
-      if(row.length === 0){        
-        // knex('polls').insert({question: req.body.question, 
-        //                       creator_name: req.body.creator_name,
-        //                       creator_email: req.body.creator_email,
-        //                       background_path: req.body.background_path,
-        //                       anonymous: req.body.anonymous
-        //   });
-      }
-    });
 
     console.log("question:",req.body.question, 
                 "creator_name:",req.body.creator_name,
@@ -33,7 +25,37 @@ module.exports = (knex) => {
                 "anonymous:", req.body.anonymous,
                 "titles", req.body.title,
                 "descriptions", req.body.description);
-    res.redirect('/');
+    
+    dbHelper.savePoll(req.body.creator_name,
+                      req.body.creator_email, 
+                      req.body.question,
+                      req.body.background_path,
+                      req.body.anonymous
+                      )
+      .then((id) => 
+      {
+        const choicesPair = zip(req.body.title, req.body.description);
+        console.log(JSON.stringify(choicesPair));
+        const rows = [];
+        choicesPair.forEach(function(pair) {
+          rows.push({
+            polls_id: Number(id), 
+            description: pair[1], 
+            title: pair[0]
+          });
+        });
+
+        dbHelper.saveChoices(rows)
+        .then((result) => {
+          res.redirect('/');
+        })
+        .catch((err) => {
+          console.log("POST /polls:", err);
+          res.status(500).end("database error");
+        });
+
+      })
+      
   });
   return router;
 }
