@@ -7,20 +7,24 @@ $(document).ready(function () {
     e.preventDefault();
     if (x < max_fields) { //max input box allowed
       x++; //text box increment
-      $(wrapper).append(
-        `<div>
-          <span class="input-group-addon-primary>
-            <span class="text_label"><i class="glyphicon glyphicon-record"></i></span>
-          </span>
-          <input class="option" type="text" name="title[]">
-          <input class="description" rows="3" name="description[]" placeholder = "description">
-          <button class="remove_field btn-remove btn-circle btn-lg"><i class="glyphicon glyphicon-remove"></i></button>
-        </div>`); //add input box 
+      $(wrapper).append (
+        `<div class="container">
+          <div class="row">
+            <div id="text_field" class="col-sm-6">
+              <input class="option" type="text" placeholder="option" name="title[]">
+            </div>
+            <div id="description_field" class="col-sm-6">
+              <input class="description" rows="3" name="description[]" placeholder = "description">
+              <button class="remove_field btn-remove btn-circle btn-lg"><i class="glyphicon glyphicon-remove"></i></button>
+            </div>
+          </div>
+        </div>`) //add input box 
     }
   });
   $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text
     e.preventDefault();
-    $(this).parent('div').remove();
+    console.log($(this).parentsUntil('.row'));
+    $(this).parentsUntil('.row').parent().remove();
     x--;
   });
 
@@ -40,13 +44,16 @@ $(document).ready(function () {
         }
       }
     });
-    $.ajax({
-      method: "POST",
-      url: "/create",
-      data: $(this).serialize()
-    }).done(function () {
-      $(".second_page").css("display", "none");
-    });
+    if (!flag) {
+      $.ajax({
+        method: "POST",
+        url: "/create",
+        data: $(this).serialize()
+      }).done(function () {
+        $(".second_page").css("display", "none");
+        $('#myModal').modal("show");
+      });
+    }
   });
 
   $("#firstpage_submit").on("click", function (e) {
@@ -58,5 +65,11 @@ $(document).ready(function () {
     $(".second_page").slideDown("fast");
     $(".first_page").slideUp("fast");
   });
+
+  $("#home_button").on("click", function (e) {
+    e.preventDefault();
+    $(".second_page").slideUp("fast");
+    $(".first_page").slideDown("fast");
+  })
 
 });

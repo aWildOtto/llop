@@ -1,5 +1,5 @@
 body {
-  background: url("/van.png") no-repeat center center fixed; 
+  background: url("/van.png") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -51,6 +51,14 @@ body {
   border: 3px solid #FFAB91;
   transition: 0.5s;
 }
+.btn-menu-left.btn-circle.btn-lg {
+  color: #FF9800;
+}
+
+.btn-menu-left.btn-circle.btn-lg:hover {
+  border: 3px solid #FFE0B2;
+  transition: 0.5s;
+}
 
 .second_page {
   display: none;
@@ -77,7 +85,7 @@ body {
   color: #455A64;
   font-weight: 500;
   outline: 0;
-  text-align: center;   
+  text-align: center;
 }
 
 .question_field {
@@ -101,5 +109,12 @@ body {
   margin-right: 10px;
 }
 
+#description_field {
+  text-align: left;
+
+}
+#text_field {
+  text-align: right;
+}
 
 
