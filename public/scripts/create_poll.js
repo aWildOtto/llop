@@ -44,6 +44,7 @@ $(document).ready(function () {
       data: $(this).serialize()
     }).done(function () {
       $(".second_page").css("display", "none");
+      $('#myModal').modal("show");
     });
   });
 
@@ -56,5 +57,11 @@ $(document).ready(function () {
     $(".second_page").slideDown("fast");
     $(".first_page").slideUp("fast");
   });
+
+  $("#home_button").on("click", function (e) {
+    e.preventDefault();
+    $(".second_page").slideUp("fast");
+    $(".first_page").slideDown("fast");
+  })
 
 });
