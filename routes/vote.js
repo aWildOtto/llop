@@ -23,11 +23,22 @@ module.exports = (dbHelper) => {
   });
 
   router.get('/:id',(req,res)=>{
-    var question = '';
-    dbHelper.getPollBySubCode((results) => {
-      question = results[0].question;
-      res.render('vote', {question: question});
-    },req.params.id)
+    res.render('vote', {uri : req.params.id});
+  });
+
+
+  router.get('/api/:id', (req,res) =>{
+    // dbHelper.getPollBySubCode((results) => {
+    //   var questionObj = {};
+    //   questionObj[req.params.id] = results[0].question;
+    //   console.log('questionObj is ',questionObj);
+    //   console.log('question is',questionObj[req.params.id]);
+    //   console.log(JSON.stringify(questionObj));
+    //   res.json(questionObj);
+    // },req.params.id);
+    dbHelper.getPollAndChoicesBySubCode((results) => {
+      console.log(results);
+    },req.params.id);
   });
 
   router.post('/:id',(req,res)=>{

@@ -28,7 +28,10 @@
   .vote_feedback {display: none}
   li { width: 100px; }
   </style>
-  <p>Question is: <%= question %></p>
+  <!-- pass uri string to js file -->
+  <script>
+  var uri = <%- JSON.stringify(uri) %>;
+  </script>
   <!-- begin form -->
   <form id = "vote_form" action="/vote" method="POST">
   <!-- enter name -->

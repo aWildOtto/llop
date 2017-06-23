@@ -1,10 +1,23 @@
 $(document).ready(function(){
 
+  //testing: passing the uri from ejs is successful
+  console.log(uri);
+
+ $.ajax({
+   method: 'GET',
+   url: `/vote/api/${uri}`,
+ }).done(function(questionObj){
+   console.log(questionObj);
+   console.log(questionObj[uri]);
+   var $div = $('<div>');
+   $div.append(questionObj[uri]);
+   $('.question').append($div);
+ });
+
+
+
 // database stand-in, delete later
-  var question = {
-    id: 123,
-    title: 'Which fruit is the root of all evils and should be eliminated from the earth?'
-  };
+
   var obj = {
     item1 : { id: 1,
               title : 'apple',
@@ -35,9 +48,6 @@ $(document).ready(function(){
 
 // Dynamically generate list of options, store id of choices in custom attribute
   function makeList(obj){
-    var $div = $('<div>');
-    $div.append(question.title).attr('questionId', question.id);
-    $('.question').append($div);
     for (var item in obj) {
       var $li = $('<li>');
       $li.append(obj[item].title).addClass('ui-state-default').attr('title', obj[item].description).attr('choiceId', obj[item].id);
