@@ -14,7 +14,7 @@ module.exports = (knex) => {
   //nb: for testing only remove this entire route after database queries written
   router.post("/", (req, res) => {
     // res.status(404).end("Must be invited to join a poll.");
-    console.log('oy');
+    console.log(req.body);
     res.status(200).send();
   });
 
