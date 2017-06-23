@@ -1,9 +1,12 @@
 body {
-  background-color: #EEE;
+  background-color: #E0F2F1;
+  text-align: center;
+  font-size: 35px;
+}
 
-  h1 {
-    color: #244751;
-  }
+#page-wrap {
+  width: 800px;
+  margin: 0 auto;
 }
 
 .btn-circle.btn-lg {
@@ -13,7 +16,7 @@ body {
   font-size: 18px;
   line-height: 1.33;
   border-radius: 25px;
-  background-color: lightgray;
+  background-color: #CFD8DC;
   color: #388E3C;
   border: 0;
 }
@@ -46,6 +49,30 @@ body {
   display: none;
 }
 
+body {
+  padding-top: 140px;
+  margin: 0px auto;
+}
+
+// .first_page {
+//   font-size: 35px;
+//   margin: 0 auto;
+//   text-align: center;
+// }
+
+.email_field {
+  width: 70%;
+  border-radius:10px;
+  border: 1px solid lightgrey;
+  padding-left: 10px; 
+}
+
+.name_field {
+  width: 70%;
+  border-radius:10px;
+  border: 1px solid lightgrey; 
+  padding-left: 10px;   
+}
 
 
 
