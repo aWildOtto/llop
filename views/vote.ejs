@@ -27,8 +27,8 @@
   .vote_container { display: none}
   .vote_feedback {display: none}
   li { width: 100px; }
-
   </style>
+  <p>Question is: <%= question %></p>
   <!-- begin form -->
   <form id = "vote_form" action="/vote" method="POST">
   <!-- enter name -->
@@ -39,7 +39,7 @@
   </div>
   <!-- begin poll options -->
   <div class="vote_container">
-  <div class="question"></div>
+  <div class="question">Question is </div>
   <ul class="sortable">
   </ul>
   <button type="submit" class="btn btn-primary">Submit</button>
