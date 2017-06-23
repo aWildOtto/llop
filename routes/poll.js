@@ -32,24 +32,30 @@ module.exports = (dbHelper) => {
                       req.body.background_path,
                       req.body.anonymous
                       )
-      .then((id)=>{
-        return Promise.all(zip(req.body.title,
-                      req.body.description).map((pair)=>{
-          console.log(id, pair[0],pair[1]);
-          dbHelper.saveChoice(Number(id), pair[0], pair[1])
-          .returning('id')
-          .catch((err)=>{
-            console.log(err);
+      .then((id) => 
+      {
+        const choicesPair = zip(req.body.title, req.body.description);
+        console.log(JSON.stringify(choicesPair));
+        const rows = [];
+        choicesPair.forEach(function(pair) {
+          rows.push({
+            polls_id: Number(id), 
+            description: pair[1], 
+            title: pair[0]
           });
-        }));
+        });
+
+        dbHelper.saveChoices(rows)
+        .then((result) => {
+          res.redirect('/');
+        })
+        .catch((err) => {
+          console.log("POST /polls:", err);
+          res.status(500).end("database error");
+        });
+
       })
-      .then((result) => {
-        res.redirect('/');
-      })
-      .catch((err) => {
-        console.log("POST /polls:", err);
-        res.status(500).end("database error");
-      });
+      
   });
   return router;
 }
