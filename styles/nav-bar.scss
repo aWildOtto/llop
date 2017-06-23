@@ -2,16 +2,26 @@
   position: fixed;
   height: 90px;
   width: 100%;
-  color: white;
+  color: #E0F2F1;
   padding-left: 2em;
   padding-right: 2em;
   top: 0;
   z-index: 99999;
   background: #00838F;
+  padding: 10px 2em 0 1em;
 }
 
-// .header {
-//   text-align: left;
-//   padding: 
-//   font-size: 36px;
-// }
+.logo {
+  float: left;
+  height: 70px;
+  width: 3em;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  padding: 1rem;
+  right:0;
+  font-style: italic;
+  font-size: 30px;
+}
