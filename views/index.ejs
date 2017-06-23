@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   <!--custom stylesheets-->
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/nav-bar.css" />
+  <link rel="stylesheet" href="styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="styles/nav-bar.css" />
 
   <!--external scripts-->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -23,64 +23,60 @@
 </head>
 
 <body>
-  <div id="page_wrap">
-    <% include ./header.ejs %>
-      <form class="poll_form" action="/create" method="POST">
-        <div class="first_page">
-          <div>
-            <label>Enter your...</label>
-            <br>
-            <label>Email</label>
-            <input class="email_field" type="email" name="creator_email" placeholder="joel@joel.joel">
-            <br>
-            <label>Name</label>
-            <input class="name_field" type="text" name="creator_name" placeholder="Joel Shinness">
-            <br>
-            <button id="firstpage_submit" type="submit" class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>
-          </div>
+  <% include ./header.ejs %>
+    <form class="poll_form" action="/create" method="POST">
+      <div class="first_page">
+        <div>
+          <label>Email</label>
+          <input class="email_field" type="email" name="creator_email" placeholder="joel@joel.joel">
+          <br>
+          <label>Name</label>
+          <input class="name_field" type="text" name="creator_name" placeholder="Joel Shinness">
+          <br>
+          <button id="firstpage_submit" type="submit" class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>
         </div>
-        <div class="second_page">
-          <div>
-            <!-- Create question -->
-            <label>What's the question everyone will be voting on?</label>
-            <input class="question_field" type="text" name="question">
-            <label><input class="anon_button" name="anonymous" type="checkbox" > Anonymous  voting</label>
-          </div>
-          <div>
-            <!-- Create option 1 -->
-            <label>Option 1</label>
-            <input class="option" type="text" name="title[]">
-            <input rows="3" name="description[]" placeholder="description">
-          </div>
-          <div class="input_fields_wrap ">
-            <!-- Create option 2 -->
-            <label>Option 2</label>
-            <input class="option" type="text" name="title[]">
-            <input rows="3" name="description[]" placeholder="description">
-          </div>
-          <!-- Submit button !-->
-          <button class="add_field_button btn btn-plus btn-circle btn-lg"><i class="glyphicon glyphicon-plus"></i></button>
-          <button type="submit" class="btn btn-success btn-circle btn-lg" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-ok"></i></button>
+      </div>
+      <div class="second_page">
+        <div>
+          <!-- Create question -->
+          <label>What's the question everyone will be voting on?</label>
+          <input class="question_field" type="text" name="question">
+          <label><input class="anon_button" name="anonymous" type="checkbox" > Anonymous  voting</label>
         </div>
-        <!-- Modal !-->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h3 class="modal-title" id="ModalLabel">LLOP</h3>
-              </div>
-              <div class="modal-body">
-                Your poll has been successfully created!
-              </div>
-              <div class="modal-footer">
-                <a href="http://google.com" class="btn btn-primary">Go to vote page</a>
-              </div>
+        <div>
+          <!-- Create option 1 -->
+          <label>Option 1</label>
+          <input class="option" type="text" name="title[]">
+          <input rows="3" name="description[]" placeholder="description">
+        </div>
+        <div class="input_fields_wrap ">
+          <!-- Create option 2 -->
+          <label>Option 2</label>
+          <input class="option" type="text" name="title[]">
+          <input rows="3" name="description[]" placeholder="description">
+        </div>
+        <!-- Submit button !-->
+        <button class="add_field_button btn btn-plus btn-circle btn-lg"><i class="glyphicon glyphicon-plus"></i></button>
+        <button type="submit" class="btn btn-success btn-circle btn-lg" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-ok"></i></button>
+      </div>
+      <!-- Modal !-->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="ModalLabel">LLOP</h3>
+            </div>
+            <div class="modal-body">
+              Your poll has been successfully created!
+            </div>
+            <div class="modal-footer">
+              <a href="http://google.com" class="btn btn-primary">Go to vote page</a>
             </div>
           </div>
         </div>
-        <div>
-      </form>
-  </div>
+      </div>
+      <div>
+    </form>
 </body>
 
 </html>

@@ -1,33 +1,35 @@
 body {
-  background-color: #E0F2F1;
+  background: url("/van.png") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   text-align: center;
   font-size: 35px;
-}
-
-#page-wrap {
-  width: 800px;
-  margin: 0 auto;
+  padding-top: 140px;
+  margin: 0px auto;
 }
 
 .btn-circle.btn-lg {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   padding: 10px 16px;
-  font-size: 18px;
+  font-size: 30px;
   line-height: 1.33;
-  border-radius: 25px;
+  border-radius: 45px;
+  border: 1px solid #90A4AE;
   background-color: #CFD8DC;
   color: #388E3C;
-  border: 0;
 }
 
 .btn-plus.btn-circle.btn-lg {
   color:#01579B;
-  background-color: lightgray;
+  background-color: #CFD8DC;
 }
 
 .btn-remove.btn-circle.btn-lg {
   color: #BF360C;
+  background-color: #CFD8DC;
 }
 
 .btn-circle.btn-lg:hover {
@@ -49,11 +51,6 @@ body {
   display: none;
 }
 
-body {
-  padding-top: 140px;
-  margin: 0px auto;
-}
-
 // .first_page {
 //   font-size: 35px;
 //   margin: 0 auto;
@@ -61,17 +58,27 @@ body {
 // }
 
 .email_field {
-  width: 70%;
-  border-radius:10px;
-  border: 1px solid lightgrey;
-  padding-left: 10px; 
+  margin: 0 auto;
+  display: block;
+  background: 0;
+  border: 0;
+  border-bottom: 3px solid #455A64;
+  color: #455A64;
+  font-weight: 500;
+  outline: 0;
+  text-align: center;
 }
 
 .name_field {
-  width: 70%;
-  border-radius:10px;
-  border: 1px solid lightgrey; 
-  padding-left: 10px;   
+  margin: 0 auto;
+  display: block;
+  background: 0;
+  border: 0;
+  border-bottom: 3px solid #455A64;
+  color: #455A64;
+  font-weight: 500;
+  outline: 0;
+  text-align: center;   
 }
 
 
