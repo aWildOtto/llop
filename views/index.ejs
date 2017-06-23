@@ -10,7 +10,7 @@
 
   <!--custom stylesheets-->
   <link rel="stylesheet" href="styles/layout.css" type="text/css" />
-  <link rel="stylesheet" href="styles/nav-bar.css" /> 
+  <link rel="stylesheet" href="styles/nav-bar.css" />
   <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
 
 
@@ -41,7 +41,7 @@
       <div class="second_page">
         <div>
           <!-- Create question -->
-          <label>What's the question everyone will be voting on?</label>
+          <label>Question</label>
           <input class="question_field" type="text" name="question">
           <label><input class="anon_button" name="anonymous" type="checkbox" > Anonymous  voting</label>
         </div>
@@ -58,34 +58,30 @@
           <input rows="3" name="description[]" placeholder="description">
         </div>
         <!-- Submit button !-->
+        <button id="home_button" class=" btn btn-menu-left btn-circle btn-lg"><i class="glyphicon glyphicon-menu-left"></i></button>
         <button class="add_field_button btn btn-plus btn-circle btn-lg"><i class="glyphicon glyphicon-plus"></i></button>
-        <button type="submit" class="btn btn-success btn-circle btn-lg" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-ok"></i></button>
+        <button type="submit" class="btn btn-success btn-circle btn-lg" data-target="#myModal"><i class="glyphicon glyphicon-ok"></i></button>
       </div>
       <!-- Modal !-->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h3 class="modal-title" id="ModalLabel">LLOP</h3>
-            </div>
-            <div class="modal-body">
-              Your poll has been successfully created!
-            </div>
-            <div class="modal-footer">
-              <a href="http://google.com" class="btn btn-primary">Go to vote page</a>
+      <div class="modal_block">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 class="modal-title" id="ModalLabel">LLOP</h3>
+              </div>
+              <div class="modal-body">
+                Your poll has been successfully created!
+              </div>
+              <div class="modal-footer">
+                <a href="/vote" class="btn btn-primary">Go to vote page</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div>
     </form>
     <div class="footer">"Polls made easy"</div>
-    <!--<div id="wrap">
-      <div id="main" class="container clear-top">
-        <p>"Polls made easy"</p>
-      </div>
-    </div>-->
-    <!--<footer class="footer"></footer>-->
 </body>
 
 </html>
