@@ -3,26 +3,32 @@ $(document).ready(function(){
 // database stand-in, delete later
   var question = {
     id: 123,
-    content: 'Which fruit is the root of all evils and should be eliminated from the earth?'
+    title: 'Which fruit is the root of all evils and should be eliminated from the earth?'
   };
   var obj = {
     item1 : { id: 1,
-              content : 'apple'
+              title : 'apple',
+              description: 'RED BIG DESCRIPTION SO BIG VERY BIG AHHHHHHHHHHHHHHHHHHHHH'
             },
     item2 : { id: 2,
-              content: 'orange'
+              title: 'orange',
+              description:'BRIGHT'
             },
     item3 : { id: 3,
-              content: 'banana'
+              title: 'banana',
+              description: 'yellow'
             },
     item4 : { id: 'new',
-              content: 'melon'
+              title: 'melon',
+              description: 'green'
             },
     item5 : { id: 'donald',
-              content: 'pineapple'
+              title: 'pineapple',
+              description: 'oy'
             },
     item6 : { id: 'caitlin',
-            content: 'blackberries'
+              title: 'blackberries',
+              description: 'black'
             }
   };
 
@@ -30,11 +36,11 @@ $(document).ready(function(){
 // Dynamically generate list of options, store id of choices in custom attribute
   function makeList(obj){
     var $div = $('<div>');
-    $div.append(question.content).attr('questionId', question.id);
+    $div.append(question.title).attr('questionId', question.id);
     $('.question').append($div);
     for (var item in obj) {
       var $li = $('<li>');
-      $li.append(obj[item].content).addClass('ui-state-default').attr('choiceId', obj[item].id);
+      $li.append(obj[item].title).addClass('ui-state-default').attr('title', obj[item].description).attr('choiceId', obj[item].id);
       $('.sortable').append($li);
     }
   };
@@ -60,16 +66,34 @@ $(document).ready(function(){
     var $sortableList = $('.sortable');
     var $listElements = $sortableList.children();
     console.log($listElements);
-    var choiceIdsRanked = [];
+    var choiceIdsRanked = {};
+    var voterName = {name: 'Fluffers'}
     for (var i = 0; i < $listElements.length; i ++) {
-      choiceIdsRanked.push($listElements[i].attributes.choiceId.nodeValue);
+      // choiceIdsRanked.push($listElements[i].attributes.choiceId.nodeValue);
+      choiceIdsRanked[i + 1] = $listElements[i].attributes.choiceId.nodeValue;
     }
     console.log(choiceIdsRanked);
-    $('.vote_container').slideUp('fast');
-    $('.vote_feedback').slideDown('fast');
+    $.ajax({
+      method: 'POST',
+      url: '/vote',
+      data: choiceIdsRanked, voterName
+    }).done(function(){
+      $('.vote_container').slideUp('fast');
+      $('.vote_feedback').slideDown('fast');
+    });
   })
 
 
+  $('.sortable').on('mouseover mouseout', '.ui-state-default', function(event){
+    var x = event.clientX;
+    var y = event.clientY;
+    console.log(x,y);
 
+    $('.ui-state-default[title]').tooltipster({
+      theme : 'tooltipster-light',
+      animation : 'fade'
+    });
+  });
 
 });
+
