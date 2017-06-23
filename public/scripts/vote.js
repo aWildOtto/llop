@@ -54,16 +54,17 @@ $(document).ready(function(){
     var $listElements = $sortableList.children();
     console.log($listElements);
     var choiceIdsRanked = {};
-    var voterName = {name: 'Fluffers'}
+    var voterName = $('#vote_form input').val()
     for (var i = 0; i < $listElements.length; i ++) {
-      // choiceIdsRanked.push($listElements[i].attributes.choiceId.nodeValue);
-      choiceIdsRanked[i + 1] = $listElements[i].attributes.choiceId.nodeValue;
+      choiceIdsRanked[i + 1] = { choiceIds : $listElements[i].attributes.choiceId.nodeValue,
+                                 name : voterName
+                               }
     }
     console.log(choiceIdsRanked);
     $.ajax({
       method: 'POST',
-      url: '/vote',
-      data: choiceIdsRanked, voterName
+      url: `/vote/api/${uri}`,
+      data: choiceIdsRanked
     }).done(function(){
       $('.vote_container').slideUp('fast');
       $('.vote_feedback').slideDown('fast');
@@ -72,10 +73,6 @@ $(document).ready(function(){
 
 
   $('.sortable').on('mouseover mouseout', '.ui-state-default', function(event){
-    var x = event.clientX;
-    var y = event.clientY;
-    console.log(x,y);
-
     $('.ui-state-default[title]').tooltipster({
       theme : 'tooltipster-light',
       animation : 'fade'
