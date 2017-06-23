@@ -3,59 +3,36 @@ $(document).ready(function(){
   //testing: passing the uri from ejs is successful
   console.log(uri);
 
- $.ajax({
-   method: 'GET',
-   url: `/vote/api/${uri}`,
- }).done(function(questionObj){
-   console.log(questionObj);
-   console.log(questionObj[uri]);
-   var $div = $('<div>');
-   $div.append(questionObj[uri]);
-   $('.question').append($div);
- });
-
-
-
-// database stand-in, delete later
-
-  var obj = {
-    item1 : { id: 1,
-              title : 'apple',
-              description: 'RED BIG DESCRIPTION SO BIG VERY BIG AHHHHHHHHHHHHHHHHHHHHH'
-            },
-    item2 : { id: 2,
-              title: 'orange',
-              description:'BRIGHT'
-            },
-    item3 : { id: 3,
-              title: 'banana',
-              description: 'yellow'
-            },
-    item4 : { id: 'new',
-              title: 'melon',
-              description: 'green'
-            },
-    item5 : { id: 'donald',
-              title: 'pineapple',
-              description: 'oy'
-            },
-    item6 : { id: 'caitlin',
-              title: 'blackberries',
-              description: 'black'
-            }
-  };
+  $.ajax({
+    method: 'GET',
+    url: `/vote/api/${uri}`,
+  }).done(function(results){
+    makeList(results);
+    makeQuestion(results);
+  });
 
 
 // Dynamically generate list of options, store id of choices in custom attribute
   function makeList(obj){
     for (var item in obj) {
+      var creator_name = obj[item].creator_name;
+      var title = obj[item].title;
+      var description = obj[item].description;
+      var choiceId = obj[item].id;
       var $li = $('<li>');
-      $li.append(obj[item].title).addClass('ui-state-default').attr('title', obj[item].description).attr('choiceId', obj[item].id);
+      $li.append(title).addClass('ui-state-default').attr('title', description).attr('choiceId', choiceId);
       $('.sortable').append($li);
     }
   };
-
-  makeList(obj);
+//Dynamically generate question and return
+  function makeQuestion(obj) {
+    var question = obj[0].question;
+    var creator = obj[0].creator_name;
+    var $div = $('<div>');
+    $div.append(`${creator} would like to know your thoughts on this question:`);
+    $div.append(question);
+    $('.question').append($div);
+  }
 
 //error handling for empty name + show poll div once name submitted
   $('.submit_name').on('click', function(event) {

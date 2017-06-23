@@ -37,7 +37,7 @@ module.exports = (dbHelper) => {
     //   res.json(questionObj);
     // },req.params.id);
     dbHelper.getPollAndChoicesBySubCode((results) => {
-      console.log(results);
+      res.json(results);
     },req.params.id);
   });
 

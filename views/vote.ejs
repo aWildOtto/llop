@@ -28,7 +28,7 @@
   .vote_feedback {display: none}
   li { width: 100px; }
   </style>
-  <!-- pass uri string to js file -->
+  <!-- pass uri string to js file so can use it in find poll and choices function -->
   <script>
   var uri = <%- JSON.stringify(uri) %>;
   </script>
@@ -48,6 +48,7 @@
   <button type="submit" class="btn btn-primary">Submit</button>
   </div>
   </form>
+  <!-- begins display after vote submission -->
   <div class="vote_feedback">
   Thank you for voting, click <a href='/create'>here</a> to create a poll of your own!
   </div>
