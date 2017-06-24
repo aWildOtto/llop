@@ -38,11 +38,13 @@ module.exports = (dbHelper) => {
         console.log(JSON.stringify(choicesPair));
         const rows = [];
         choicesPair.forEach(function(pair) {
-          rows.push({
-            polls_id: Number(id), 
-            description: pair[1], 
-            title: pair[0]
-          });
+          if(pair[0]!=''){
+            rows.push({
+              polls_id: Number(id), 
+              title: pair[0],
+              description: pair[1] 
+            });
+          }
         });
 
         dbHelper.saveChoices(rows)
