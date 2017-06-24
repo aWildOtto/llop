@@ -42,7 +42,6 @@ app.use(express.static("public"));
 // Mount all resource routes
 app.use("/create", pollRoutes(dbHelper));
 app.use("/vote", voteRoutes(dbHelper));
-app.use("/create", pollRoutes(dbHelper));
 app.use("/administrative", administrativeRoutes(dbHelper));
 
 // Home page

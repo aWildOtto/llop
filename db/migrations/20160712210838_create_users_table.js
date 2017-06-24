@@ -4,10 +4,10 @@ exports.up = function(knex, Promise) {
     table.string('creator_name');
     table.string('creator_email');
     table.string('question');
-    table.string('admin_code');
-    table.string('submission_code');
-    table.string('status');
-    table.string('background_path');
+    table.string('admin_code');//admin link
+    table.string('submission_code');//submit link
+    table.string('status');//open or closed
+    table.string('background_path');//background
     table.boolean('anonymous');
   }),
   knex.schema.createTable('voters', function (table) {

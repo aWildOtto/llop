@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/css/tooltipster.min.css"></link>
+  <link rel="stylesheet" href="  https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/css/themes/tooltipster-light.min.css"></link>
+
   <!--external scripts-->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
@@ -15,13 +18,20 @@
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/vote.js"></script>
   <script type="text/javascript" src="/scripts/sortable.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/js/jquery.tooltipster.min.js"></script>
+
 </head>
 <body>
   <!-- temporary CSS code to set generated poll as hidden by default before name is entered, delete when actual style is set up-->
   <style>
   .vote_container { display: none}
   .vote_feedback {display: none}
+  li { width: 100px; }
   </style>
+  <!-- pass uri string to js file so can use it in find poll and choices function -->
+  <script>
+  var uri = <%- JSON.stringify(uri) %>;
+  </script>
   <!-- begin form -->
   <form id = "vote_form" action="/vote" method="POST">
   <!-- enter name -->
@@ -32,12 +42,13 @@
   </div>
   <!-- begin poll options -->
   <div class="vote_container">
-  <div class="question"></div>
+  <div class="question">Question is </div>
   <ul class="sortable">
   </ul>
   <button type="submit" class="btn btn-primary">Submit</button>
   </div>
   </form>
+  <!-- begins display after vote submission -->
   <div class="vote_feedback">
   Thank you for voting, click <a href='/create'>here</a> to create a poll of your own!
   </div>
