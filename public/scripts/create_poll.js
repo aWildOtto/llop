@@ -18,7 +18,7 @@ $(document).ready(function () {
               <button class="remove_field btn-remove btn-circle btn-lg"><i class="glyphicon glyphicon-remove"></i></button>
             </div>
           </div>
-        </div>`) //add input box 
+        </div>`) //add input box
     }
   });
   $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text

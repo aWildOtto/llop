@@ -7,7 +7,7 @@ $(document).ready(function(){
   }).done(function(results){
     makeList(results);
     makeQuestion(results);
-  })catch(function(err){
+  }).catch(function(err){
     console.log(err);
   });
 
