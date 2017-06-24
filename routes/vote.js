@@ -7,25 +7,28 @@ module.exports = (dbHelper, ENV) => {
 
 
   router.get("/", (req, res) => {
-    res.status(404).end("Must be invited to join a poll.");
-  });
-
-  //nb: for testing only remove this entire route after database queries written
-  router.post("/", (req, res) => {
-    // res.status(404).end("Must be invited to join a poll.");
-    res.status(200).send();
+    res.render("error");
   });
 
   router.get('/:id',(req,res)=>{
-    res.render('vote', {uri : req.params.id});
+    dbHelper.checkSubCode(req.params.id).then((result) => {
+      if(result.length === 0){
+        res.render('error');
+        return;
+      }else{
+        res.render('vote', {uri : req.params.id});
+        return;
+      }
+    });
+    
   });
-
 
   router.get('/api/:id', (req,res) =>{
     dbHelper.getPollAndChoicesBySubCode(req.params.id).then((results) => {
       res.json(results);
     })
     .catch((err) => {
+      res.redirect('/error');
       console.log(err);
     });
   });
@@ -80,6 +83,7 @@ module.exports = (dbHelper, ENV) => {
       res.status(201).send();
     })
     .catch((err)=>{
+      res.redirect('/error');
       console.log(err);
     });
   });
