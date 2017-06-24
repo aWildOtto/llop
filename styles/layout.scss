@@ -109,7 +109,27 @@ body {
   margin-right: 10px;
 }
 
+#text_field {
+  text-align: right;
+}
+
+#description_field {
+  text-align: left;
+}
+
 #myModal {
   padding-top: 200px;
 }
 
+.anon_button {
+  -webkit-appearance:none;
+  width:25px;
+  height:25px;
+  background:white;
+  border-radius:5px;
+  border:1px solid #90A4AE;
+}
+
+.anon_button:checked {
+  background: #00838F;
+}
