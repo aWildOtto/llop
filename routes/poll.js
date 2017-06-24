@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router  = express.Router();
-
+const uuid = require('uuid/v4');
 //-----------------utilities-----------------------
 function zip(a,b){
   return a.map(function (e, i) {
@@ -25,14 +25,16 @@ module.exports = (dbHelper) => {
                 "anonymous:", req.body.anonymous,
                 "titles", req.body.title,
                 "descriptions", req.body.description);
-    
+    let admin_code = uuid(), submission_code = uuid();
     dbHelper.savePoll(req.body.creator_name,
                       req.body.creator_email, 
                       req.body.question,
                       req.body.background_path,
-                      req.body.anonymous
+                      req.body.anonymous,
+                      admin_code,
+                      submission_code
                       )
-      .then((id) => 
+      .then((id, sub_code, ) => 
       {
         const choicesPair = zip(req.body.title, req.body.description);
         console.log(JSON.stringify(choicesPair));
