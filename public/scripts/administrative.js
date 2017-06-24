@@ -30,7 +30,7 @@ $(document).ready(function(){
 // only diff from vote page: not drag and drop
   function makeList(obj){
     var $div = $('<div>');
-    $div.append(question.content).attr('questionId', question.id);
+    $div.append(question.content).attr('questionId', question.id).addClass('question_wrapper');
     $('.question').append($div);
     for (var item in obj) {
       var $li = $('<li>');
