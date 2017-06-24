@@ -1,7 +1,7 @@
 "use strict";
 const express = require('express');
 const router = express.Router();
-const sg = require('sendgrid')(process.env.APIKey_sendgrid);
+var sendgrid = require('sendgrid')('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');
 
 //-----------------utilities-----------------------
 function zip(a, b) {
@@ -11,26 +11,6 @@ function zip(a, b) {
 }
 
 module.exports = (dbHelper, env) => {
-  var request = sg.emptyRequest({
-    method: 'POST',
-    path: '/v3/mail/send',
-    body: {
-      personalizations: [{
-        to: [{
-          email: 'donald.ma@hotmail.ca'
-        }],
-        subject: 'blah'
-      }],
-      from: {
-        email: 'joel@joel.joel'
-      },
-      content: [{
-        type: 'text/plain',
-        value: 'and easy to do anywhere, even with Node.js'
-      }]
-    }
-  });
-
 
   router.get("/", (req, res) => {
     res.render('index');
@@ -65,26 +45,28 @@ module.exports = (dbHelper, env) => {
             });
           }
         });
-
         dbHelper.saveChoices(rows)
           .then((result) => {
-            sg.API(request, function (error, response) {
-              if (error) {
-                console.log('Error response received');
-              }
-              console.log(response.statusCode);
-              console.log(response.body);
-              console.log(response.headers);
-            });
-          });
+         sendgrid.send({
+           to: 'ottohu101@gmail.com',
+           from: 'other@example.com',
+           subject: 'Hello World',
+           text: 'My first email through SendGrid.'
+         }, function (err, json) {
+           if (err) {
+             return console.error(err);
+           }
+           console.log(json);
+         });
+
         res.redirect('/');
       })
       .catch((err) => {
         console.log("POST /polls:", err);
         res.status(500).end("database error");
       });
-
-  })
-
-  return router;
-};
+    });
+  });
+    return router;
+  
+}
