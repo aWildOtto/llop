@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="/styles/nav-bar.css" />
   <link rel="stylesheet" href="/styles/vote.css" type="text/css" />
 
-
   <!--external scripts-->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
@@ -27,11 +26,9 @@
 
 <body>
   <% include ./header.ejs %>
-
     <!-- pass uri string to js file so can use it in find poll and choices function -->
     <script>
       var uri = <%- JSON.stringify(uri) %>;
-
     </script>
     <!-- begin form -->
     <form id="vote_form" action="/vote" method="POST">

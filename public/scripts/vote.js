@@ -9,6 +9,8 @@ $(document).ready(function(){
   }).done(function(results){
     makeList(results);
     makeQuestion(results);
+  }).catch(function(err){
+    console.log(err);
   });
 
 
@@ -70,6 +72,8 @@ $(document).ready(function(){
     }).done(function(){
       $('.vote_container').slideUp('fast');
       $('#myModal2').modal("show");
+    }).catch(function(err){
+    console.log(err);
     });
   })
 
