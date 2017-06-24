@@ -40,7 +40,7 @@ app.use(express.static("public"));
 
 
 // Mount all resource routes
-app.use("/create", pollRoutes(dbHelper));
+app.use("/home", pollRoutes(dbHelper));
 app.use("/vote", voteRoutes(dbHelper));
 app.use("/administrative", administrativeRoutes(dbHelper));
 
