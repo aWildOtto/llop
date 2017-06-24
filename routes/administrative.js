@@ -14,6 +14,7 @@ module.exports = (dbHealper) => {
   router.get('/:id',(req,res)=>{
     dbHealper.getRankedChoicesByAdminCode(req.params.id).then((results)=>{
       console.log(results.rows);
+      res.json(results.rows);
     });
     res.render('administrative');
   });
