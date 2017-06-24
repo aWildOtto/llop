@@ -43,7 +43,7 @@ module.exports = (dbHelper, env) => {
                       admin_code,
                       submission_code
                       )
-      .then((id, sub_code, ) => 
+      .then((id) => 
       {
         const choicesPair = zip(req.body.title, req.body.description);
         console.log(JSON.stringify(choicesPair));
