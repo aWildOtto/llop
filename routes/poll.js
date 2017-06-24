@@ -76,7 +76,7 @@ module.exports = (dbHelper, env) => {
            console.log(json);
          });
 
-        res.redirect('/');
+        res.json(result[0].submission_code);
       })
       .catch((err) => {
         console.log("POST /polls:", err);
