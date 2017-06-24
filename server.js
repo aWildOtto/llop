@@ -38,6 +38,12 @@ app.use("/styles", sass({
 }));
 app.use(express.static("public"));
 
+app.get("/", (req, res) => {
+  res.redirect("/create");
+});
+app.get("/error", (req, res) => {
+  res.render('error');
+});
 
 // Mount all resource routes
 app.use("/create", pollRoutes(dbHelper, process.env));
@@ -45,9 +51,6 @@ app.use("/vote", voteRoutes(dbHelper));
 app.use("/administrative", administrativeRoutes(dbHelper));
 
 // Home page
-app.get("/", (req, res) => {
-  res.redirect("/create");
-});
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);

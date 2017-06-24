@@ -63,7 +63,7 @@ module.exports = (dbHelper, env) => {
       })
       .catch((err) => {
         console.log("POST /polls:", err);
-        res.status(500).end("database error");
+        res.status(500).redirect('/error');
       });
     });
   });

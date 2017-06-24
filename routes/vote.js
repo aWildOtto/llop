@@ -16,15 +16,24 @@ module.exports = (dbHelper) => {
   });
 
   router.get('/:id',(req,res)=>{
-    res.render('vote', {uri : req.params.id});
+    dbHelper.checkSubCode(req.params.id).then((result) => {
+      if(result.length === 0){
+        res.render('error');
+        return;
+      }else{
+        res.render('vote', {uri : req.params.id});
+        return;
+      }
+    });
+    
   });
-
 
   router.get('/api/:id', (req,res) =>{
     dbHelper.getPollAndChoicesBySubCode(req.params.id).then((results) => {
       res.json(results);
     })
     .catch((err) => {
+      res.redirect('/error');
       console.log(err);
     });
   });
@@ -50,6 +59,7 @@ module.exports = (dbHelper) => {
       res.status(201).send();
     })
     .catch((err)=>{
+      res.redirect('/error');
       console.log(err);
     });
   });
