@@ -12,9 +12,9 @@ module.exports = (dbHealper) => {
   });
 
   router.get('/:id',(req,res)=>{
-    // knex.select().from('choices').where({polls_id: req.params.id}).asCallback((err,result)=>{
-    //   res.json(result);
-    // });
+    dbHealper.getRankedChoicesByAdminCode(req.params.id).then((results)=>{
+      console.log(results.rows);
+    });
     res.render('administrative');
   });
 
