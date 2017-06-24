@@ -9,7 +9,7 @@ body {
   padding-top: 260px;
   margin: 0px auto;
   height: 100%;
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: 'Dosis', sans-serif;
 }
 
 .btn-circle.btn-lg {
@@ -92,12 +92,12 @@ body {
   position: relative;
   display: inline-block;
   border-radius: 10px;
-  border: 0; 
+  border: 0;
 }
 
 .option {
   border-radius: 10px;
-  border: 1px solid lightgray; 
+  border: 1px solid lightgray;
   margin-left: 10px;
 }
 
@@ -105,19 +105,11 @@ body {
   position: relative;
   display: inline-block;
   border-radius: 10px;
-  border: 1px solid lightgray; 
+  border: 1px solid lightgray;
   margin-right: 10px;
 }
 
-#description_field {
-  text-align: left;
-
-}
-#text_field {
-  text-align: right;
-}
-
-.modal_block {
-  padding-top: 140px
+#myModal {
+  padding-top: 200px;
 }
 

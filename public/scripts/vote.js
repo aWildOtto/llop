@@ -29,9 +29,11 @@ $(document).ready(function(){
     var question = obj[0].question;
     var creator = obj[0].creator_name;
     var $div = $('<div>');
-    $div.append(`${creator} would like to know your thoughts on this question:`);
+    $div.append(`${creator}\'s question: <br>`);
     $div.append(question);
+    $div.append(`<br><div class="instructions">Drag and drop to rank these choices</div>`);
     $('.question').append($div);
+
   }
 
 //error handling for empty name + show poll div once name submitted
@@ -67,7 +69,7 @@ $(document).ready(function(){
       data: choiceIdsRanked
     }).done(function(){
       $('.vote_container').slideUp('fast');
-      $('.vote_feedback').slideDown('fast');
+      $('#myModal2').modal("show");
     });
   })
 
