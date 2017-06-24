@@ -18,7 +18,7 @@ $(document).ready(function () {
               <button class="remove_field btn-remove btn-circle btn-lg"><i class="glyphicon glyphicon-remove"></i></button>
             </div>
           </div>
-        </div>`) //add input box 
+        </div>`) //add input box
     }
   });
   $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text
@@ -34,17 +34,13 @@ $(document).ready(function () {
       alert('Question field cannot be empty, please enter a question');
       return;
     }
-    var flag = false;
+    var countOptions = 0;
     $(".option").each(function (index, element) {
-      if ($(this).val().length === 0) {
-        if (flag === false && index < 2) {
-          alert('Please input at least two options');
-          flag = true;
-          return;
-        }
+      if ($(this).val().length != 0) {
+        countOptions += 1;
       }
     });
-    if (!flag) {
+    if(countOptions >= 2){
       $.ajax({
         method: "POST",
         url: "/create",
@@ -53,6 +49,8 @@ $(document).ready(function () {
         $(".second_page").css("display", "none");
         $('#myModal').modal("show");
       });
+    }else{
+      alert("Not enough options to start a poll!");
     }
   });
 

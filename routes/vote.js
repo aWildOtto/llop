@@ -6,13 +6,7 @@ module.exports = (dbHelper) => {
 
 
   router.get("/", (req, res) => {
-    res.status(404).end("Must be invited to join a poll.");
-  });
-
-  //nb: for testing only remove this entire route after database queries written
-  router.post("/", (req, res) => {
-    // res.status(404).end("Must be invited to join a poll.");
-    res.status(200).send();
+    res.render("error");
   });
 
   router.get('/:id',(req,res)=>{

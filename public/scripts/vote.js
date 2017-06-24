@@ -2,13 +2,20 @@ $(document).ready(function(){
 
   //testing: passing the uri from ejs is successful
   console.log(uri);
-
+  var name_input;
   $.ajax({
     method: 'GET',
     url: `/vote/api/${uri}`,
   }).done(function(results){
     makeList(results);
     makeQuestion(results);
+    if(name_input){
+      console.log(results,"asdasd");  
+      $(".name_container").hide();
+      $('.vote_container').slideDown('fast');
+    }
+  }).catch(function(err){
+    console.log(err);
   });
 
 
@@ -19,6 +26,8 @@ $(document).ready(function(){
       var title = obj[item].title;
       var description = obj[item].description;
       var choiceId = obj[item].id;
+      name_input = obj[item].anonymous;
+      console.log("nume_input ",name_input);
       var $li = $('<li>');
       $li.append(title).addClass('ui-state-default').attr('title', description).attr('choiceId', choiceId);
       $('.sortable').append($li);
@@ -70,6 +79,8 @@ $(document).ready(function(){
     }).done(function(){
       $('.vote_container').slideUp('fast');
       $('#myModal2').modal("show");
+    }).catch(function(err){
+    console.log(err);
     });
   })
 
