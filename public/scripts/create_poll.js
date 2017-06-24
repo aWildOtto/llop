@@ -3,11 +3,17 @@ $(document).ready(function () {
   var wrapper = $(".input_fields_wrap"); //Fields wrapper
   var add_button = $(".add_field_button"); //Add button ID
   var x = 0; //initlal text box count
+
+  function checkIfEmailInString(text) {
+    var re = /(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/;
+    return re.test(text);
+  } //function using reg expression to error check for valid email
+
   $(add_button).click(function (e) { //on add input button click
     e.preventDefault();
     if (x < max_fields) { //max input box allowed
       x++; //text box increment
-      $(wrapper).append (
+      $(wrapper).append(
         `<div class="container">
           <div class="row">
             <div id="text_field" class="col-sm-6">
@@ -18,7 +24,7 @@ $(document).ready(function () {
               <button class="remove_field btn-remove btn-circle btn-lg"><i class="glyphicon glyphicon-remove"></i></button>
             </div>
           </div>
-        </div>`) //add input box 
+        </div>`) //add input box
     }
   });
   $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text
@@ -40,7 +46,7 @@ $(document).ready(function () {
         countOptions += 1;
       }
     });
-    if(countOptions >= 2){
+    if (countOptions >= 2) {
       $.ajax({
         method: "POST",
         url: "/create",
@@ -49,14 +55,14 @@ $(document).ready(function () {
         $(".second_page").css("display", "none");
         $('#myModal').modal("show");
       });
-    }else{
+    } else {
       alert("Not enough options to start a poll!");
     }
   });
 
   $("#firstpage_submit").on("click", function (e) {
     e.preventDefault();
-    if ($(".email_field").val().length === 0) {
+    if ($(".email_field").val().length === 0 || checkIfEmailInString($(".email_field").val()) === false) {
       alert('Please enter a valid email address');
       return;
     }
