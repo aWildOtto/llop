@@ -10,7 +10,7 @@ $(document).ready(function(){
     makeList(results);
     makeQuestion(results);
     if(name_input){
-      console.log(results,"asdasd");  
+      console.log(results,"asdasd");
       $(".name_container").hide();
       $('.vote_container').slideDown('fast');
     }
@@ -42,7 +42,6 @@ $(document).ready(function(){
     $div.append(question);
     $div.append(`<br><div class="instructions">Drag and drop to rank these choices</div>`);
     $('.question').append($div);
-
   }
 
 //error handling for empty name + show poll div once name submitted
