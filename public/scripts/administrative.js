@@ -1,42 +1,34 @@
 $(document).ready(function(){
+  console.log(uri);
 
-// database stand-in, delete later
-  var question = {
-    id: 123,
-    content: 'Which fruit is the root of all evils and should be eliminated from the earth?'
-  };
-  var obj = {
-    item1 : { id: 1,
-              content : 'apple'
-            },
-    item2 : { id: 2,
-              content: 'orange'
-            },
-    item3 : { id: 3,
-              content: 'banana'
-            },
-    item4 : { id: 'new',
-              content: 'melon'
-            },
-    item5 : { id: 'donald',
-              content: 'pineapple'
-            },
-    item6 : { id: 'caitlin',
-            content: 'blackberries'
-            }
-  };
+  $.ajax({
+    method: 'GET',
+    url: `/administrative/api/${uri}`,
+  }).done(function(results){
+    makeList(results);
+    makeQuestion(results);
+  });
 
-// Dynamically generate list of options
-// only diff from vote page: not drag and drop
-  function makeList(obj){
-    var $div = $('<div>');
-    $div.append(question.content).attr('questionId', question.id).addClass('question_wrapper');
-    $('.question').append($div);
-    for (var item in obj) {
+
+  function makeList(arr){
+    arr.forEach(function(item){
+      var creator_name = item.creator_name;
+      var title = item.title;
+      var description = item.description;
+      var choiceId = item.id;
       var $li = $('<li>');
-      $li.append(obj[item].content).addClass('options');
+      $li.append(title).attr('title', description).addClass('options');
       $('.results').append($li);
-    }
+    });
   };
-  makeList(obj);
+
+ function makeQuestion(arr) {
+   var question = arr[0].question;
+   var creator = arr[0].creator_name;
+   var $div = $('<div>');
+   $div.append(`Here are the results for <em>${creator}</em>'s poll:`);
+   $div.append(question).addClass('question_wrapper');
+   $('.question').append($div);
+ }
+
 });
