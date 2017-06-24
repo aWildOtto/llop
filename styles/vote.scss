@@ -1,0 +1,53 @@
+.voter_name {
+  position: relative;
+  display: inline-block;
+  border-radius: 10px;
+  border: 0;
+}
+
+.vote_container {
+  display: none
+}
+
+.vote_feedback {
+  display: none
+}
+
+li {
+  font-size: 30px;
+  width: 50%;
+  border: 1px solid #00838F;
+  border-radius: 7px;
+  text-align: center;
+  margin: auto;
+  background-color: white;
+  opacity: 0.8;
+  color: #37474F;
+  margin-top: 10px;
+
+  &:nth-of-type(odd) {
+    background-color: #E0F2F1;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+#myModal2 {
+  padding-top: 200px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0px;
+  padding: 1rem;
+  right: 0;
+  font-style: italic;
+  font-size: 25px;
+  z-index: -1;
+}
+
+.instructions {
+  font-size: 20px
+}
