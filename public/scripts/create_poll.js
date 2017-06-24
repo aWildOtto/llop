@@ -1,8 +1,10 @@
 $(document).ready(function () {
+
   var max_fields = 20; //maximum input boxes allowed
   var wrapper = $(".input_fields_wrap"); //Fields wrapper
   var add_button = $(".add_field_button"); //Add button ID
   var x = 0; //initlal text box count
+
   $(add_button).click(function (e) { //on add input button click
     e.preventDefault();
     if (x < max_fields) { //max input box allowed
@@ -21,6 +23,7 @@ $(document).ready(function () {
         </div>`) //add input box
     }
   });
+
   $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text
     e.preventDefault();
     console.log($(this).parentsUntil('.row'));
@@ -34,18 +37,21 @@ $(document).ready(function () {
       alert('Question field cannot be empty, please enter a question');
       return;
     }
+
     var countOptions = 0;
     $(".option").each(function (index, element) {
       if ($(this).val().length != 0) {
         countOptions += 1;
       }
     });
+
     if(countOptions >= 2){
       $.ajax({
         method: "POST",
         url: "/create",
         data: $(this).serialize()
       }).done(function () {
+        $('.modal-footer').append("<a href='/vote/dd32538b-7d13-4460-a623-0d186bccb994'>Go to vote page</a>")
         $(".second_page").css("display", "none");
         $('#myModal').modal("show");
       });

@@ -13,9 +13,13 @@
   display: none
 }
 
+.sortable {
+  margin: auto;
+  width: 40%;
+}
+
 li {
   font-size: 30px;
-  width: 50%;
   border: 1px solid #00838F;
   border-radius: 7px;
   text-align: center;
