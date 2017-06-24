@@ -27,7 +27,6 @@ module.exports = (dbHelper, env) => {
       "titles", req.body.title,
       "descriptions", req.body.description);
 
-<<<<<<< HEAD
     console.log("question:",req.body.question, 
                 "creator_name:",req.body.creator_name,
                 "email:",req.body.creator_email,
@@ -46,15 +45,6 @@ module.exports = (dbHelper, env) => {
                       )
       .then((id, sub_code, ) => 
       {
-=======
-    dbHelper.savePoll(req.body.creator_name,
-        req.body.creator_email,
-        req.body.question,
-        req.body.background_path,
-        req.body.anonymous
-      )
-      .then((id) => {
->>>>>>> e7d55defd6a9bbfa007006f0463a07bf37afc0d2
         const choicesPair = zip(req.body.title, req.body.description);
         console.log(JSON.stringify(choicesPair));
         const rows = [];
