@@ -17,6 +17,12 @@ Llop is a multi-feature web application that assists users in decision making us
 4. Go to <http://localhost:8080/> in your browser.
 5. Alternatively go to <http://llop.herokuapp.com/>.
 
+#Photos
+![Create page](https://github.com/caitlinquon/tweetr/blob/master/docs/compose-box.png)
+![Hovering](https://github.com/caitlinquon/tweetr/blob/master/docs/hovering.png)
+![With Compose Box](https://github.com/caitlinquon/tweetr/blob/master/docs/with-compose-box.png)
+![Without Compose Box](https://github.com/caitlinquon/tweetr/blob/master/docs/without-compose-box.png)
+
 ## Dependencies
 - Node 5.10.x or above
 - NPM 3.8.x or above
@@ -25,9 +31,3 @@ Llop is a multi-feature web application that assists users in decision making us
 - Morgan 1.7.0 or above
 - Nodemon 1.9.2 or above
 - Sqlite3 3.1.4 or above
-
-#Photos
-![Compose box](https://github.com/caitlinquon/tweetr/blob/master/docs/compose-box.png)
-![Hovering](https://github.com/caitlinquon/tweetr/blob/master/docs/hovering.png)
-![With Compose Box](https://github.com/caitlinquon/tweetr/blob/master/docs/with-compose-box.png)
-![Without Compose Box](https://github.com/caitlinquon/tweetr/blob/master/docs/without-compose-box.png)
