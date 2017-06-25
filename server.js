@@ -5,15 +5,16 @@
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
 const PORT        = process.env.PORT || 8080;
-// const ENV         = process.env.ENV || "development";
+const ENV         = process.env.ENV || "development";
 const express     = require("express");
 const bodyParser  = require("body-parser");
 const sass        = require("node-sass-middleware");
 const app         = express();
+var pg = require('pg');
+
 
 const knexConfig  = require("./knexfile");
-// const knex        = require("knex")(knexConfig[ENV]);
-const knex        = require("knex")(knexConfig);
+const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 
@@ -40,6 +41,20 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
+
+
+app.get('/db', function (request, response) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    client.query('SELECT * FROM polls', function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       { console.log(results);
+       res.status(202) }
+    });
+  });
+});
 
 app.get("/", (req, res) => {
   res.redirect("/create");
