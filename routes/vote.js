@@ -25,6 +25,7 @@ module.exports = (dbHelper, ENV) => {
 
   router.get('/api/:id', (req,res) =>{
     dbHelper.getPollAndChoicesBySubCode(req.params.id).then((results) => {
+      console.log(results);
       res.json(results);
     })
     .catch((err) => {
