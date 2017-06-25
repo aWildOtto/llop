@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-  <title>Results</title>
+  <title>Vote Results</title>
   <!--external stylesheets-->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
-  <link rel="stylesheet" href="/styles/admin.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/admin.css" type="text/css"/>
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav-bar.css" />
   <!--external scripts-->
@@ -20,25 +20,23 @@
   <script type="text/javascript" src="/scripts/administrative.js"></script>
 </head>
 <script>
-  // <!-- pass uri string to js file so can use it in find poll and choices function -->
-  var uri = <%- JSON.stringify(uri) %>;
-
+// <!-- pass uri string to js file so can use it in find poll and choices function -->
+  var uri = <%-JSON.stringify(uri)%>;
+  var subCode = <%-JSON.stringify(subCode)%>;
 </script>
 
 <body>
-  <% include ./header.ejs %>
-    <container class="display_results">
-      <div class="question">
-        <h2 class="results_header">Results for: </h1>
-      </div>
-      <ol class="results">
-      </ol>
-    </container>
-    <div>
-      <a href='/vote'><button class="vote_button"><i class="glyphicon glyphicon-pencil"></i> Voting page</button></a>
-      <a href='/'><button class="poll_button"><i class="glyphicon glyphicon-list"></i> New poll</button></a>
-    </div>
-    <div class="footer">"Polls made easy"</div>
+   <% include ./header.ejs %>
+  <container class = "display_results">
+  <div class="question"><h2 class="results_header">Results for:  </h1></div>
+  <ol class="results">
+  </ol>
+  </container>
+  <div>
+  <a href='/vote/<%-subCode%>'><button class="vote_button"><i class="glyphicon glyphicon-pencil"></i> Voting page</button></a>
+  <a href='/'><button class="poll_button"><i class="glyphicon glyphicon-list"></i> New poll</button></a>
+  </div>
+  <div class="footer">"Polls made easy"</div>
 </body>
 
 </html>

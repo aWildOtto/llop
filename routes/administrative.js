@@ -3,30 +3,37 @@
 const express = require('express');
 const router  = express.Router();
 
-module.exports = (dbHealper) => {
+module.exports = (dbHelper) => {
 
   //nb: remove render code after testing done
   router.get("/", (req, res) => {
-    res.status(404).end("Oops, there's no poll here!");
+    res.redirect('/error');
   });
 
   router.get('/:id',(req,res)=>{
-    res.render('administrative',{uri : req.params.id});
-    console.log(req.params.id)
-  });
-
-  router.get('/api/:id', (req,res) =>{
-    dbHealper.getRankedChoicesByAdminCode(req.params.id).then((results)=>{
-      console.log('these are the results', results.rows);
-      res.json(results.rows);
+    dbHelper.checkAdminCode(req.params.id).then((results)=>{
+      console.log("results",results);
+      let sub_code = results[0].submission_code;
+      console.log(sub_code);
+      if(results.length === 0){
+        console.log('hello');
+        res.render('error');
+        return;
+      }else{
+        res.render('administrative',{uri : req.params.id, subCode: sub_code});
+        return;
+      }
     });
   });
 
-  router.post('/:id',(req,res)=>{
-    // knex.select().from('choices').where({polls_id: req.params.id}).asCallback((err,result)=>{
-    //   res.json(result);
-    // });
-    res.render('administrative');
+  router.get('/api/:id', (req,res) =>{
+    dbHelper.getRankedChoicesByAdminCode(req.params.id).then((results)=>{
+      console.log('these are the results', results.rows);
+      res.json(results.rows);
+    })
+    .catch((err)=>{
+      res.render('/error');
+    });
   });
   return router;
 }

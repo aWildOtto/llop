@@ -1,12 +1,12 @@
 $(document).ready(function(){
-  console.log(uri);
-
   $.ajax({
     method: 'GET',
     url: `/administrative/api/${uri}`,
   }).done(function(results){
     makeList(results);
     makeQuestion(results);
+  }).catch(function(err){
+    console.log(err);
   });
 
 

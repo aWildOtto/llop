@@ -38,16 +38,19 @@ app.use("/styles", sass({
 }));
 app.use(express.static("public"));
 
-
-// Mount all resource routes
-app.use("/create", pollRoutes(dbHelper));
-app.use("/vote", voteRoutes(dbHelper));
-app.use("/administrative", administrativeRoutes(dbHelper));
-
-// Home page
 app.get("/", (req, res) => {
   res.redirect("/create");
 });
+app.get("/error", (req, res) => {
+  res.render('error');
+});
+
+// Mount all resource routes
+app.use("/create", pollRoutes(dbHelper, process.env));
+app.use("/vote", voteRoutes(dbHelper, process.env));
+app.use("/administrative", administrativeRoutes(dbHelper));
+
+// Home page
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
