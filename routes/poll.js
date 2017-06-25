@@ -60,12 +60,12 @@ module.exports = (dbHelper, env) => {
 
            Link for the results:
 
-           ${'https://llop.herokuapp.com/administrative' + admin_code}
+           ${'https://llop.herokuapp.com/administrative/' + admin_code}
 
            Link for voting:
 
 
-           ${'https://llop.herokuapp.com/vote' + submission_code}
+           ${'https://llop.herokuapp.com/vote/' + submission_code}
 
            Kind regards,
            Llop Dev Team
