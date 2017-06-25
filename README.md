@@ -18,10 +18,15 @@ Llop is a multi-feature web application that assists users in decision making us
 5. Alternatively go to <http://llop.herokuapp.com/>.
 
 #Photos
-![Create page](https://github.com/caitlinquon/tweetr/blob/master/docs/compose-box.png)
-![Hovering](https://github.com/caitlinquon/tweetr/blob/master/docs/hovering.png)
-![With Compose Box](https://github.com/caitlinquon/tweetr/blob/master/docs/with-compose-box.png)
-![Without Compose Box](https://github.com/caitlinquon/tweetr/blob/master/docs/without-compose-box.png)
+![Create user](https://github.com/aWildOtto/llop/blob/master/docs/createUser.png)
+![Create poll page](https://github.com/aWildOtto/llop/blob/master/docs/createPoll.png)
+![Create poll email](https://github.com/aWildOtto/llop/blob/master/docs/createPollEmail.png)
+![Voter name](https://github.com/aWildOtto/llop/blob/master/docs/voterName.png)
+![Voting page](https://github.com/aWildOtto/llop/blob/master/docs/votingPage.png)
+![Voting email](https://github.com/aWildOtto/llop/blob/master/docs/votingEmail.png)
+![Results page](https://github.com/aWildOtto/llop/blob/master/docs/resultsPage.png)
+
+
 
 ## Dependencies
 - Node 5.10.x or above
