@@ -28,7 +28,7 @@ module.exports = {
     connection: process.env.DATABASE_URL + '?ssl=true',
     debug: true,
     pool: {
-      min: 0,
+      min: 2,
       max: 10
     },
     migrations: {
