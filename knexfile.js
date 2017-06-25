@@ -27,16 +27,13 @@ module.exports = {
     client: 'postgresql',
     connection: process.env.DATABASE_URL + '?ssl=true',
     pool: {
-      min: 2,
+      min: 1,
       max: 10
     },
     migrations: {
       directory: './db/migrations',
       tableName: 'migrations'
     },
-    seeds: {
-      directory: './db/seeds'
-    }
   }
 
 };
