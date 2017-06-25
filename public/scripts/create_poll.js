@@ -17,10 +17,10 @@ $(document).ready(function () {
       $(wrapper).append(
         `<div class="container">
           <div class="row">
-            <div id="text_field" class="col-sm-6">
+            <div id="text_field" class="col-sm-4">
               <input class="option" type="text" placeholder="option" name="title[]">
             </div>
-            <div id="description_field" class="col-sm-6">
+            <div id="description_field" class="col-sm-8">
               <input class="description" rows="3" name="description[]" placeholder = "description">
               <button class="remove_field btn-remove btn-circle btn-lg"><i class="glyphicon glyphicon-remove"></i></button>
             </div>
@@ -71,7 +71,7 @@ $(document).ready(function () {
     if ($(".email_field").val().length === 0 || checkIfEmailInString($(".email_field").val()) === false) {
       alert('Please enter a valid email address');
       return;
-    } 
+    }
     if ($(".name_field").val().length === 0) {
       alert('Please enter a name');
       return;
