@@ -13,7 +13,7 @@ exports.seed = function(knex, Promise) {
         knex('choices').insert({id: 1,
           polls_id: 1,
           description: 'v cruel',
-          title: 'with fire'});
+          title: 'with fire'}),
         knex('choices').insert({id: i,
           polls_id: 1,
           description: 'v cruel',
