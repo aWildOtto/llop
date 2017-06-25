@@ -1,3 +1,9 @@
+h2 {
+  font-size: 45px;
+  font-style: bold;
+  position: relative;
+}
+
 li.options{
   font-size: 30px;
   border: 1px solid #00838F;
@@ -15,19 +21,13 @@ li.options{
   }
 }
 
-h2 {
-  font-size: 45px;
-  font-style: bold;
-  position: relative;
+li.options.selected-highlight {
+  border: 4px solid gold;
 }
+
 
 .display_results {
   font-size: 30px;
-}
-
-.question_wrapper {
-  margin-bottom: 30px;
-  font-style: italic;
 }
 
 .poll_button {
@@ -39,6 +39,11 @@ h2 {
   color: #00838F;
 }
 
+.question_wrapper {
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
 .vote_button {
   border-radius: 10px;
   background-color: #F5F5F5;
@@ -48,7 +53,5 @@ h2 {
   color: #00838F;
 }
 
-li.options.selected-highlight {
-  border: 4px solid gold;
-}
+
 

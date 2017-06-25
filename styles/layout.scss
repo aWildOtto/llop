@@ -12,6 +12,31 @@ body {
   font-family: 'Dosis', sans-serif;
 }
 
+#description_field {
+  text-align: right;
+}
+
+#myModal {
+  padding-top: 200px;
+}
+
+#text_field {
+  text-align: right;
+}
+
+.anon_button {
+  -webkit-appearance:none;
+  width:25px;
+  height:25px;
+  background:white;
+  border-radius:5px;
+  border:1px solid #90A4AE;
+}
+
+.anon_button:checked {
+  background: #00838F;
+}
+
 .btn-circle.btn-lg {
   width: 70px;
   height: 70px;
@@ -25,22 +50,23 @@ body {
   color: #388E3C;
 }
 
-.btn-plus.btn-circle.btn-lg {
-  color:#01579B;
-  background-color: #CFD8DC;
-}
-
-.btn-remove.btn-circle.btn-lg {
-  color: #BF360C;
-  background-color: #CFD8DC;
-  height: 50px;
-  width: 50px;
-  font-size: 18px;
-}
-
 .btn-circle.btn-lg:hover {
   border:3px solid #C8E6C9;
   transition: 0.5s;
+}
+
+.btn-menu-left.btn-circle.btn-lg:hover {
+  border: 3px solid #FFE0B2;
+  transition: 0.5s;
+}
+
+.btn-menu-left.btn-circle.btn-lg {
+  color: #FF9800;
+}
+
+.btn-plus.btn-circle.btn-lg {
+  color:#01579B;
+  background-color: #CFD8DC;
 }
 
 .btn-plus.btn-circle.btn-lg:hover {
@@ -52,17 +78,22 @@ body {
   border: 3px solid #FFAB91;
   transition: 0.5s;
 }
-.btn-menu-left.btn-circle.btn-lg {
-  color: #FF9800;
+
+.btn-remove.btn-circle.btn-lg {
+  color: #BF360C;
+  background-color: #CFD8DC;
+  height: 50px;
+  width: 50px;
+  font-size: 18px;
 }
 
-.btn-menu-left.btn-circle.btn-lg:hover {
-  border: 3px solid #FFE0B2;
-  transition: 0.5s;
-}
-
-.second_page {
-  display: none;
+.description {
+  position: relative;
+  display: inline-block;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  margin-right: 10px;
+  width:88%;
 }
 
 .email_field {
@@ -91,6 +122,12 @@ body {
   width: 40%
 }
 
+.option {
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  margin-left: 10px;
+}
+
 .question_field {
   position: relative;
   display: inline-block;
@@ -99,42 +136,18 @@ body {
   width: 70%;
 }
 
-.option {
-  border-radius: 10px;
-  border: 1px solid lightgray;
-  margin-left: 10px;
+.second_page {
+  display: none;
 }
 
-.description {
-  position: relative;
-  display: inline-block;
-  border-radius: 10px;
-  border: 1px solid lightgray;
-  margin-right: 10px;
-  width:88%;
-}
 
-#text_field {
-  text-align: right;
-}
 
-#description_field {
-  text-align: right;
-}
 
-#myModal {
-  padding-top: 200px;
-}
 
-.anon_button {
-  -webkit-appearance:none;
-  width:25px;
-  height:25px;
-  background:white;
-  border-radius:5px;
-  border:1px solid #90A4AE;
-}
 
-.anon_button:checked {
-  background: #00838F;
-}
+
+
+
+
+
+
