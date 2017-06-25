@@ -58,5 +58,5 @@ app.use("/administrative", administrativeRoutes(dbHelper));
 // Home page
 
 app.listen(PORT, () => {
-  console.log("Example app listening on port " + PORT);
+  console.log("Llop listening on port " + PORT);
 });

@@ -6,7 +6,7 @@ body {
   background-size: cover;
   text-align: center;
   font-size: 35px;
-  padding-top: 260px;
+  padding-top: 200px;
   margin: 0px auto;
   height: 100%;
   font-family: 'Dosis', sans-serif;
@@ -96,6 +96,7 @@ body {
   display: inline-block;
   border-radius: 10px;
   border: 1px solid lightgray;
+  width: 70%;
 }
 
 .option {
@@ -110,6 +111,7 @@ body {
   border-radius: 10px;
   border: 1px solid lightgray;
   margin-right: 10px;
+  width:88%;
 }
 
 #text_field {
@@ -117,7 +119,7 @@ body {
 }
 
 #description_field {
-  text-align: left;
+  text-align: right;
 }
 
 #myModal {
