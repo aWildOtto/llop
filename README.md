@@ -18,7 +18,7 @@ Llop is a multi-feature web application that assists users in decision making us
 4. Go to the address in your browser.
 5. Alternatively go to <http://llop.herokuapp.com/>.
 
-#Photos
+## Screenshots
 ![Create user](https://github.com/aWildOtto/llop/blob/master/docs/createUser.png)
 ![Create poll page](https://github.com/aWildOtto/llop/blob/master/docs/createPoll.png)
 ![Create poll email](https://github.com/aWildOtto/llop/blob/master/docs/createPollEmail.png)
