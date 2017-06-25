@@ -1,5 +1,6 @@
 // require('dotenv').config();
-require('dotenv').config({silent: true})
+// require('dotenv').config({silent: true})
+if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
 module.exports = {
 
