@@ -60,14 +60,14 @@ module.exports = (dbHelper, env) => {
 
            Link for the results:
 
-           ${env.DB_HOST + ':8080/administrative/' + admin_code}
+           ${'https://llop.herokuapp.com/administrative' + admin_code}
 
            Link for voting:
 
-           ${env.DB_HOST + ':8080/vote/' + submission_code}
-           
+           ${'https://llop.herokuapp.com/vote' + submission_code}
+
            Kind regards,
-           Llop dev team
+           Llop Dev Team
            `
          }, function (err, json) {
            if (err) {
@@ -85,5 +85,5 @@ module.exports = (dbHelper, env) => {
     });
   });
     return router;
-  
+
 }
