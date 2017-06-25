@@ -1,4 +1,5 @@
-require('dotenv').config();
+// require('dotenv').config();
+require('dotenv').config({silent: true})
 
 module.exports = {
 
@@ -23,7 +24,7 @@ module.exports = {
 
   production: {
     client: 'postgresql',
-    connection: process.env.DATABASE_URL + '?ssl=true',
+    connection: 'postgres://mvjvhsltypwpeu:5d4181b29dd99843172609769cf5e2c673aca460f470b536cb858148b1524f0f@ec2-23-23-222-147.compute-1.amazonaws.com:5432/db8p8fm4m6ek4q?ssl=true',
     pool: {
       min: 2,
       max: 10
