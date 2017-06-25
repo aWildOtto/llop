@@ -3,7 +3,23 @@ const express = require('express');
 const router  = express.Router();
 var sendgrid = require('sendgrid');
 
-module.exports = (dbHelper, ENV) => {
+//----------utility---------------------
+function generateVoteStr(result, order){
+  let vote = '\n', count = 1;
+  for(let i in order){
+    vote += count+'. ';
+    for(let j of result){
+      if(j.id == order[i].choiceIds){
+        console.log(j.id);
+        vote += j.title + '\n';
+      }
+    }
+    count ++;
+  }
+  return vote;
+}
+
+module.exports = (dbHelper, env) => {
 
 
   router.get("/", (req, res) => {
@@ -35,7 +51,7 @@ module.exports = (dbHelper, ENV) => {
   });
 
   router.post('/api/:id',(req,res)=>{
-    var email = sendgrid(ENV.SENDGRID_API);
+    var email = sendgrid(env.SENDGRID_API);
     // console.log(item,":", req.body[item]);
     console.log(req.body);
     const poll_id_prom = dbHelper.getPollIdBySubCode(req.params.id);
@@ -53,25 +69,33 @@ module.exports = (dbHelper, ENV) => {
       return Promise.all(voteInsertPromises);
     });
     allVoter_choices_prom.then((results)=>{
-      dbHelper.getPollBySubCode(req.params.id).then((result)=>{
+      dbHelper.getPollAndChoicesBySubCode(req.params.id).then((result)=>{
         console.log(result);
         console.log(result[0].anonymous);
-        let voterName = !result[0].anonymous? req.body['1']['name'] : "someone(anonymous)";
-        console.log(voterName);
+        let voterName = !result[0].anonymous? req.body['1']['name'] : "Someone(anonymous)";
+        let vote = generateVoteStr(result, req.body);
+        console.log(vote);
         email.send({
           to: result[0].creator_email,
           from: 'noreply@llop.com',
-          subject: 'Your poll just got a new response!',
+          subject: 'Your poll just recieved a new vote!',
           text: `
+          
           Hi ${result[0].creator_name},
 
           ${voterName} voted on your poll:
+          
           ${result[0].question}
-          Link for the results:
-          ${'localhost:8080/administrative/'+result[0].admin_code}
 
-          Kind regards,
-          Llop dev team
+          ${vote}
+
+Link for the results:
+
+${env.DB_HOST+'/administrative/'+result[0].admin_code}
+
+Kind regards,
+
+Llop dev team
           `
         }, function (err, json) {
           if (err) {
