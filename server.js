@@ -13,7 +13,7 @@ const app         = express();
 
 const knexConfig  = require("./knexfile");
 // const knex        = require("knex")(knexConfig[ENV]);
-const knex        = require("knex");
+const knex        = require("knex")(knexConfig);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 
