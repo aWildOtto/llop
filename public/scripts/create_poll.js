@@ -71,6 +71,10 @@ $(document).ready(function () {
     if ($(".email_field").val().length === 0 || checkIfEmailInString($(".email_field").val()) === false) {
       alert('Please enter a valid email address');
       return;
+    } 
+    if ($(".name_field").val().length === 0) {
+      alert('Please enter a name');
+      return;
     }
     $(".second_page").slideDown("fast");
     $(".first_page").slideUp("fast");
