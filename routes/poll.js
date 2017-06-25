@@ -1,8 +1,8 @@
 "use strict";
 const express = require('express');
 const router = express.Router();
-var sendgrid = require('sendgrid')('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');
-
+var sendgrid = require('sendgrid');
+const uuid = require('uuid/v4');
 //-----------------utilities-----------------------
 function zip(a, b) {
   return a.map(function (e, i) {
@@ -17,7 +17,7 @@ module.exports = (dbHelper, env) => {
   });
 
   router.post('/', (req, res) => {
-
+    var email = sendgrid(env.SENDGRID_API);
     console.log("question:", req.body.question,
       "creator_name:", req.body.creator_name,
       "email:", req.body.creator_email,
@@ -25,12 +25,14 @@ module.exports = (dbHelper, env) => {
       "anonymous:", req.body.anonymous,
       "titles", req.body.title,
       "descriptions", req.body.description);
-
+    let admin_code = uuid(), submission_code = uuid();
     dbHelper.savePoll(req.body.creator_name,
         req.body.creator_email,
         req.body.question,
         req.body.background_path,
-        req.body.anonymous
+        req.body.anonymous,
+        admin_code,
+        submission_code
       )
       .then((id) => {
         const choicesPair = zip(req.body.title, req.body.description);
@@ -47,19 +49,34 @@ module.exports = (dbHelper, env) => {
         });
         dbHelper.saveChoices(rows)
           .then((result) => {
-         sendgrid.send({
-           to: 'ottohu101@gmail.com',
-           from: 'other@example.com',
-           subject: 'Hello World',
-           text: 'My first email through SendGrid.'
+         email.send({
+           to: req.body.creator_email,
+           from: 'noreply@llop.com',
+           subject: 'Poll Created',
+           text: `
+           Hi ${req.body.creator_name},
+
+           Your poll has been created.
+
+           Link for the results:
+
+           ${'localhost:8080/administrative/'+admin_code}
+
+           Link for voting:
+
+           ${'localhost:8080/vote/'+submission_code}
+           
+           Kind regards,
+           Llop dev team
+           `
          }, function (err, json) {
            if (err) {
              return console.error(err);
            }
            console.log(json);
          });
-
-        res.redirect('/');
+        console.log("asdfwqerqkewjfksaldfasdf");
+        res.json(submission_code);
       })
       .catch((err) => {
         console.log("POST /polls:", err);

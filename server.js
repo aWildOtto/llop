@@ -47,7 +47,7 @@ app.get("/error", (req, res) => {
 
 // Mount all resource routes
 app.use("/create", pollRoutes(dbHelper, process.env));
-app.use("/vote", voteRoutes(dbHelper));
+app.use("/vote", voteRoutes(dbHelper, process.env));
 app.use("/administrative", administrativeRoutes(dbHelper));
 
 // Home page

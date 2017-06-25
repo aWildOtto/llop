@@ -21,7 +21,8 @@
 </head>
 <script>
 // <!-- pass uri string to js file so can use it in find poll and choices function -->
-var uri = <%- JSON.stringify(uri) %>;
+  var uri = <%-JSON.stringify(uri)%>;
+  var subCode = <%-JSON.stringify(subCode)%>;
 </script>
 <body>
    <% include ./header.ejs %>
@@ -31,7 +32,7 @@ var uri = <%- JSON.stringify(uri) %>;
   </ol>
   </container>
   <div>
-  <a href='/vote'><button class="vote_button"><i class="glyphicon glyphicon-pencil"></i> Voting page</button></a>
+  <a href='/vote/<%-subCode%>'><button class="vote_button"><i class="glyphicon glyphicon-pencil"></i> Voting page</button></a>
   <a href='/'><button class="poll_button"><i class="glyphicon glyphicon-list"></i> New poll</button></a>
   </div>
   <div class="footer">"Polls made easy"</div>
