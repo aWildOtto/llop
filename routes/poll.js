@@ -64,6 +64,7 @@ module.exports = (dbHelper, env) => {
 
            Link for voting:
 
+
            ${'https://llop.herokuapp.com/vote' + submission_code}
 
            Kind regards,
