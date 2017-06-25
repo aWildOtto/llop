@@ -35,7 +35,7 @@ $(document).ready(function(){
    var question = arr[0].question;
    var creator = arr[0].creator_name;
    var $div = $('<div>');
-   $div.append(`Here are the results for <em>${creator}</em>'s poll:`);
+   $div.append(`<em>${creator}</em>'s poll: `);
    $div.append(question).addClass('question_wrapper');
    $('.question').append($div);
  }
