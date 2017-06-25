@@ -12,11 +12,8 @@ module.exports = (dbHelper) => {
 
   router.get('/:id',(req,res)=>{
     dbHelper.checkAdminCode(req.params.id).then((results)=>{
-      console.log("results",results);
       let sub_code = results[0].submission_code;
-      console.log(sub_code);
       if(results.length === 0){
-        console.log('hello');
         res.render('error');
         return;
       }else{
@@ -26,13 +23,25 @@ module.exports = (dbHelper) => {
     });
   });
 
-  router.get('/api/:id', (req,res) =>{
+  router.get('/api/:id', (req, res) =>{
     dbHelper.getRankedChoicesByAdminCode(req.params.id).then((results)=>{
       console.log('these are the results', results.rows);
       res.json(results.rows);
     })
     .catch((err)=>{
       res.render('/error');
+    });
+  });
+
+  router.get('/api/:id/votes',(req, res)=>{
+    dbHelper.getPollIdAdminCode(req.params.id).then((poll_id)=>{
+      dbHelper.getVoteCountByPollId(Number(poll_id[0].id)).then((count)=>{
+        res.json(count[0].count);
+        return;
+      })
+    })
+    .catch((err)=>{
+      console.log(err);
     });
   });
   return router;

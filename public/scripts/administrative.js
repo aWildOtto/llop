@@ -5,10 +5,19 @@ $(document).ready(function(){
   }).done(function(results){
     makeList(results);
     makeQuestion(results);
+    $.ajax({
+      method: 'GET',
+      url: `/administrative/api/${uri}/votes`
+    }).done(function(result){
+      showVoteCount(result);
+    });
   }).catch(function(err){
     console.log(err);
   });
 
+  function showVoteCount(result){
+    console.log(result);//add the count data into a <div> to the page 
+  }
 
   function makeList(arr){
     arr.forEach(function(item){
