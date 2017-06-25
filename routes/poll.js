@@ -75,8 +75,8 @@ module.exports = (dbHelper, env) => {
            }
            console.log(json);
          });
-
-        res.json(result[0].submission_code);
+        console.log("asdfwqerqkewjfksaldfasdf");
+        res.json(submission_code);
       })
       .catch((err) => {
         console.log("POST /polls:", err);

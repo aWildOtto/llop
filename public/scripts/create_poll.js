@@ -50,8 +50,9 @@ $(document).ready(function () {
         method: "POST",
         url: "/create",
         data: $(this).serialize()
-      }).done(function () {
-        $('.modal-footer').append("<a href='/vote/dd32538b-7d13-4460-a623-0d186bccb994'>Go to vote page</a>")
+      }).done(function (result) {
+        console.log(result);
+        $('.modal-footer').append("<a href='/vote/"+result+"'>Go to vote page</a>");
         $(".second_page").css("display", "none");
         $('#myModal').modal("show");
       });

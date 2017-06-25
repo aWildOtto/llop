@@ -1,6 +1,4 @@
 $(document).ready(function(){
-  console.log(uri);
-
   $.ajax({
     method: 'GET',
     url: `/administrative/api/${uri}`,
