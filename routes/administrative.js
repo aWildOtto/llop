@@ -34,10 +34,9 @@ module.exports = (dbHelper) => {
   });
 
   router.get('/api/:id/votes',(req, res)=>{
-    dbHelper.checkAdminCode(req.params.id).then((poll_id)=>{
-      dbHelper.getVoteCountByPollId(Number(poll_id[0])).then((count)=>{
-        console.log(count);
-        res.json(count);
+    dbHelper.getPollIdAdminCode(req.params.id).then((poll_id)=>{
+      dbHelper.getVoteCountByPollId(Number(poll_id[0].id)).then((count)=>{
+        res.json(count[0].count);
         return;
       })
     })

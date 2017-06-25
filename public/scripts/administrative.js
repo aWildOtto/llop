@@ -16,7 +16,7 @@ $(document).ready(function(){
   });
 
   function showVoteCount(result){
-    console.log(result);
+    console.log(result);//add the count data into a <div> to the page 
   }
 
   function makeList(arr){
