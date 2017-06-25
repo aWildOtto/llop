@@ -60,11 +60,11 @@ module.exports = (dbHelper, env) => {
 
            Link for the results:
 
-           ${'localhost:8080/administrative/'+admin_code}
+           ${env.DB_HOST + ':8080/administrative/' + admin_code}
 
            Link for voting:
 
-           ${'localhost:8080/vote/'+submission_code}
+           ${env.DB_HOST + ':8080/vote/' + submission_code}
            
            Kind regards,
            Llop dev team
