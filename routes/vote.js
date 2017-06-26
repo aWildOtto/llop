@@ -91,7 +91,7 @@ module.exports = (dbHelper, env) => {
 
 Link for the results:
 
-${env.DB_HOST+':8080/administrative/'+result[0].admin_code}
+${env.DB_HOST+':'+env.PORT+'/administrative/'+result[0].admin_code}
 
 Kind regards,
 
