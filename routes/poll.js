@@ -60,12 +60,12 @@ module.exports = (dbHelper, env) => {
 
            Link for the results:
 
-           ${env.DB_HOST + ':'+env.PORT+'/administrative/' + admin_code}
+           ${env.DB_HOST + ':8080/administrative/' + admin_code}
 
            Link for voting:
 
-           ${env.DB_HOST + ':'+env.PORT+'/vote/' + submission_code}
-           
+           ${env.DB_HOST + ':8080/vote/' + submission_code}
+
            Kind regards,
            Llop dev team
            `
@@ -85,5 +85,5 @@ module.exports = (dbHelper, env) => {
     });
   });
     return router;
-  
+
 }

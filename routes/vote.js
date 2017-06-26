@@ -36,7 +36,7 @@ module.exports = (dbHelper, env) => {
         return;
       }
     });
-    
+
   });
 
   router.get('/api/:id', (req,res) =>{
@@ -80,18 +80,18 @@ module.exports = (dbHelper, env) => {
           from: 'noreply@llop.com',
           subject: 'Your poll just recieved a new vote!',
           text: `
-          
+
           Hi ${result[0].creator_name},
 
           ${voterName} voted on your poll:
-          
+
           ${result[0].question}
 
           ${vote}
 
 Link for the results:
 
-${env.DB_HOST+':'+env.PORT+'/administrative/'+result[0].admin_code}
+${env.DB_HOST+':8080/administrative/'+result[0].admin_code}
 
 Kind regards,
 
@@ -104,7 +104,7 @@ Llop dev team
           console.log(json);
         });
       });
-    
+
       res.status(201).send();
     })
     .catch((err)=>{
