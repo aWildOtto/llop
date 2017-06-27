@@ -14,7 +14,7 @@ Llop is a multi-feature web application that assists users in decision making us
 1. Fork this repository, then clone your fork of this repository.
 2. Install dependencies using the `npm install` command.
 3. Create a `.env` file and put in configurations according to `.example.env` (you need a valid sendgrid API key to get the email feature working).
-3. Start the web server using the `npm run local` command. The app will be served at the the  you configurated.
+3. Start the web server using the `npm run local` command. The app will be served as you configurated.
 4. Go to the address in your browser.
 5. Alternatively go to <http://llop.herokuapp.com/>.
 
@@ -27,7 +27,11 @@ Llop is a multi-feature web application that assists users in decision making us
 ![Voting email](https://github.com/aWildOtto/llop/blob/master/docs/votingEmail.png)
 ![Results page](https://github.com/aWildOtto/llop/blob/master/docs/resultsPage.png)
 
-
+## Dev team
+Otto Hu
+Donald Ma
+Ti Zhang
+Caitlin Quon
 
 ## Dependencies
 - Node 5.10.x or above
