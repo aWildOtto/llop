@@ -1,6 +1,6 @@
 # Llop
 Polls made easy
-Llop is a multi-feature web application that assists users in decision making using a simple voting poll interface. This project incoportates JavaScript, HTML, CSS, jQuery, AJAX front-end skills, and Node, Express, PostgresSQL, and Knex back-end skills. 
+Llop is a multi-feature web application that assists users in decision making using a simple voting poll interface. This project incorporates JavaScript, HTML, CSS, jQuery, AJAX front-end skills, and Node, Express, PostgresSQL, and Knex back-end skills. 
 
 ## Features
 1. Users can create a poll by entering a valid email address as well as their name.
