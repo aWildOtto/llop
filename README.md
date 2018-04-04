@@ -14,7 +14,7 @@
 2. Install the dependencies(described at the end) using the `npm install` command.
 3. Follow the format of `.example.env`, then create a `.env` file and put it into the configurations(you need a valid sendgrid API key to get the email feature working).
 3. Start the web server using the `npm run local` command. The app will be served as it is configurated.
-4. Go to the address of your browser or go to <http://llop.herokuapp.com/>.
+4. Go to the address `localhost:8080` in your browser or go to <http://llop.herokuapp.com/>.
 
 ## Screenshots
 ![Create user](https://github.com/aWildOtto/llop/blob/master/docs/createUser.png)
